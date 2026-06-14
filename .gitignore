@@ -1,6 +1,7 @@
 # Artefakty podglądu / build (nie wchodzą do repo)
 _preview/
 wp-content/themes/flowinstal/_podglad.html
+FlowInstal-podglad.html
 
 # Systemowe
 .DS_Store
