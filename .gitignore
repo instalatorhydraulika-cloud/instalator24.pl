@@ -1,0 +1,8 @@
+# Artefakty podglądu / build (nie wchodzą do repo)
+_preview/
+wp-content/themes/flowinstal/_podglad.html
+
+# Systemowe
+.DS_Store
+Thumbs.db
+*.log
