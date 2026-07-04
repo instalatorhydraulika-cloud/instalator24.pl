@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* zapobiega przewijaniu strony podczas przeciągania zawodników palcem */
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* element „duch" ciągnięty za palcem/myszą */
+.drag-ghost {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.55));
+  touch-action: none;
+}
+
+/* trawa boiska */
+.pitch-turf {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #12662f 0px,
+      #12662f 9%,
+      #0f5a2a 9%,
+      #0f5a2a 18%
+    );
+}
+
+/* podświetlenie strefy pod kursorem podczas przeciągania */
+.zone-hover {
+  outline: 3px dashed #facc15;
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+[data-zone='bench'].zone-hover {
+  background-color: rgba(250, 204, 21, 0.14);
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); }
+  100% { box-shadow: 0 0 0 12px rgba(250, 204, 21, 0); }
+}
+.pulse-ring {
+  animation: pulseRing 1.4s ease-out infinite;
+}
