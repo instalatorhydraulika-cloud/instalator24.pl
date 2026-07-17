@@ -295,8 +295,9 @@
   function openLb(i) {
     lbIndex = (i + figures.length) % figures.length;
     const fig = figures[lbIndex];
-    lbImg.src = fig.getAttribute("data-full");
-    lbImg.alt = fig.querySelector("img") ? fig.querySelector("img").alt : "";
+    const thumbImg = fig.querySelector("img");
+    lbImg.src = fig.getAttribute("data-full") || (thumbImg ? thumbImg.src : "");
+    lbImg.alt = thumbImg ? thumbImg.alt : "";
     lbCap.textContent = fig.getAttribute("data-cap") || "";
     lb.classList.add("show");
     lb.setAttribute("aria-hidden", "false");
