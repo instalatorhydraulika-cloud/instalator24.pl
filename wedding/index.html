@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#8a9a7b" />
+<title>Olga & Jakub — 20.07.2027 · Zaproszenie ślubne</title>
+<meta name="description" content="Olga i Jakub — z radością zapraszamy na nasz ślub 20 lipca 2027. Potwierdź obecność i wybierz menu." />
+<meta property="og:title" content="Olga & Jakub — Zaproszenie ślubne" />
+<meta property="og:description" content="20 lipca 2027. Potwierdź obecność i wybierz menu." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- ===================== INTRO: KOPERTA ===================== -->
+<div class="envelope-screen" id="envelopeScreen">
+  <div class="env-sky"></div>
+  <div class="env-stage">
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Otwórz zaproszenie">
+      <!-- List wysuwający się z koperty -->
+      <div class="env-letter" id="envLetter">
+        <div class="env-letter-inner">
+          <span class="env-letter-eyebrow">z radością zapraszamy</span>
+          <span class="env-letter-names">Olga <em>&amp;</em> Jakub</span>
+          <span class="env-letter-date">20 · 07 · 2027</span>
+        </div>
+      </div>
+      <!-- Koperta -->
+      <div class="env-back"></div>
+      <div class="env-body"></div>
+      <div class="env-flap" id="envFlap"></div>
+      <div class="env-seal" id="envSeal">
+        <span>O<i>&amp;</i>J</span>
+      </div>
+    </div>
+    <p class="env-hint" id="envHint">dotknij, aby otworzyć</p>
+  </div>
+</div>
+
+<!-- ===================== TŁO — dryfujące liście ===================== -->
+<div class="petals" aria-hidden="true"></div>
+
+<!-- ===================== NAWIGACJA ===================== -->
+<nav class="topnav" id="topnav" aria-label="Nawigacja">
+  <a class="topnav-brand" href="#top">O&nbsp;<em>&amp;</em>&nbsp;J</a>
+  <button class="topnav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="topnav-links" id="navLinks">
+    <a href="#historia">Nasza historia</a>
+    <a href="#plan">Plan dnia</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#info">Informacje</a>
+    <a href="#rsvp" class="topnav-cta">Potwierdź obecność</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="hero">
+    <div class="hero-arch">
+      <svg class="arch-svg" viewBox="0 0 400 620" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#a9b894"/>
+            <stop offset="1" stop-color="#7c8b6f"/>
+          </linearGradient>
+        </defs>
+        <!-- łuk -->
+        <path d="M60,600 L60,220 A140,140 0 0 1 340,220 L340,600"
+              fill="none" stroke="#c8b98a" stroke-width="2.5" opacity=".55"/>
+        <!-- girlanda liści wzdłuż łuku (lewa) -->
+        <g class="arch-leaves arch-leaves-left" fill="url(#leafGrad)"></g>
+        <g class="arch-leaves arch-leaves-right" fill="url(#leafGrad)"></g>
+      </svg>
+    </div>
+
+    <div class="hero-inner reveal">
+      <p class="hero-eyebrow">we're getting married</p>
+      <h1 class="hero-names">Olga<span class="amp">&amp;</span>Jakub</h1>
+      <div class="hero-rule"><span></span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-7-4.35-9.33-8.6C1.1 9.2 2.7 5.5 6.2 5.5c2 0 3.2 1.2 3.8 2.2.6-1 1.8-2.2 3.8-2.2 3.5 0 5.1 3.7 3.53 6.9C19 16.65 12 21 12 21z" fill="#c9a24b"/></svg><span></span></div>
+      <p class="hero-date">20 lipca 2027 · sobota</p>
+      <p class="hero-place">Łódź &amp; okolice</p>
+      <a href="#rsvp" class="btn btn-primary hero-btn">Potwierdź obecność</a>
+    </div>
+
+    <a href="#historia" class="scroll-cue" aria-label="Przewiń niżej">
+      <span></span>
+    </a>
+  </header>
+
+  <!-- ===================== ODLICZANIE ===================== -->
+  <section class="countdown-band" aria-label="Odliczanie do ślubu">
+    <p class="cd-title">Zostało już tylko…</p>
+    <div class="countdown reveal" id="countdown">
+      <div class="cd-cell"><span class="cd-num" id="cdDays">—</span><span class="cd-lab">dni</span></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-cell"><span class="cd-num" id="cdHours">—</span><span class="cd-lab">godzin</span></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-cell"><span class="cd-num" id="cdMin">—</span><span class="cd-lab">minut</span></div>
+      <div class="cd-sep">·</div>
+      <div class="cd-cell"><span class="cd-num" id="cdSec">—</span><span class="cd-lab">sekund</span></div>
+    </div>
+    <p class="cd-done" id="cdDone" hidden>Ten dzień właśnie nadszedł — kochamy Was! 💛</p>
+  </section>
+
+  <!-- ===================== NASZA HISTORIA ===================== -->
+  <section class="section story" id="historia">
+    <div class="section-head reveal">
+      <span class="eyebrow">nasza historia</span>
+      <h2>Jak to się zaczęło</h2>
+    </div>
+    <ol class="timeline">
+      <li class="reveal">
+        <span class="tl-dot"></span>
+        <span class="tl-year">2019</span>
+        <h3>Pierwsze spotkanie</h3>
+        <p>Przypadkowe „cześć", które zmieniło wszystko. Do dziś spieramy się, kto zaczął rozmowę pierwszy.</p>
+      </li>
+      <li class="reveal">
+        <span class="tl-dot"></span>
+        <span class="tl-year">2021</span>
+        <h3>Wspólne życie</h3>
+        <p>Pierwsze mieszkanie, pierwsza roślina (przeżyła!) i tysiące małych codziennych chwil.</p>
+      </li>
+      <li class="reveal">
+        <span class="tl-dot"></span>
+        <span class="tl-year">2026</span>
+        <h3>Oświadczyny</h3>
+        <p>Zachód słońca, drżące ręce i jedno wielkie „TAK". 💍</p>
+      </li>
+      <li class="reveal">
+        <span class="tl-dot"></span>
+        <span class="tl-year">2027</span>
+        <h3>Mówimy „tak"</h3>
+        <p>20 lipca powiemy sobie to najważniejsze — i chcemy, żebyście byli tam z nami.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===================== PLAN DNIA ===================== -->
+  <section class="section plan" id="plan">
+    <div class="section-head reveal">
+      <span class="eyebrow">plan dnia</span>
+      <h2>Harmonogram uroczystości</h2>
+    </div>
+    <div class="agenda">
+      <div class="agenda-item reveal">
+        <div class="ag-time">15:00</div>
+        <div class="ag-icon">⛪</div>
+        <div class="ag-body"><h3>Ceremonia</h3><p>Zaczynamy od najważniejszego momentu. Prosimy o przybycie 15 min wcześniej.</p></div>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="ag-time">16:30</div>
+        <div class="ag-icon">🥂</div>
+        <div class="ag-body"><h3>Powitanie i toast</h3><p>Życzenia, szampan i pierwsze wspólne zdjęcia.</p></div>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="ag-time">17:30</div>
+        <div class="ag-icon">🍽️</div>
+        <div class="ag-body"><h3>Obiad</h3><p>Zasiadamy do stołów. Menu wybierzecie w formularzu poniżej.</p></div>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="ag-time">20:00</div>
+        <div class="ag-icon">💃</div>
+        <div class="ag-body"><h3>Pierwszy taniec i zabawa</h3><p>Otwieramy parkiet i bawimy się do białego rana.</p></div>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="ag-time">00:00</div>
+        <div class="ag-icon">🎂</div>
+        <div class="ag-body"><h3>Tort i niespodzianki</h3><p>Słodki akcent nocy i kilka atrakcji, których nie zdradzimy. 😉</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERIA ===================== -->
+  <section class="section gallery" id="galeria">
+    <div class="section-head reveal">
+      <span class="eyebrow">chwile</span>
+      <h2>Nasza galeria</h2>
+      <p class="section-sub">Kilka kadrów z naszej wspólnej drogi. Więcej — już wkrótce.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="ph reveal" style="--i:0"><span>Wasze zdjęcie</span></figure>
+      <figure class="ph reveal" style="--i:1"><span>Wasze zdjęcie</span></figure>
+      <figure class="ph reveal" style="--i:2"><span>Wasze zdjęcie</span></figure>
+      <figure class="ph reveal" style="--i:3"><span>Wasze zdjęcie</span></figure>
+      <figure class="ph reveal" style="--i:4"><span>Wasze zdjęcie</span></figure>
+      <figure class="ph reveal" style="--i:5"><span>Wasze zdjęcie</span></figure>
+    </div>
+    <p class="gallery-note reveal">Podmień kafelki na własne zdjęcia w pliku <code>index.html</code> (sekcja „galeria").</p>
+  </section>
+
+  <!-- ===================== RSVP ===================== -->
+  <section class="section rsvp" id="rsvp">
+    <div class="section-head reveal">
+      <span class="eyebrow">rsvp</span>
+      <h2>Potwierdź obecność</h2>
+      <p class="section-sub">Prosimy o potwierdzenie do <strong>20 maja 2027</strong>. Zajmie to minutę.</p>
+    </div>
+
+    <form class="rsvp-form reveal" id="rsvpForm" novalidate>
+      <div class="field">
+        <label for="fName">Imię i nazwisko *</label>
+        <input type="text" id="fName" name="name" required autocomplete="name" placeholder="np. Anna Kowalska" />
+      </div>
+
+      <div class="field">
+        <label for="fEmail">E-mail lub telefon *</label>
+        <input type="text" id="fEmail" name="contact" required placeholder="kontakt, na wypadek zmian" />
+      </div>
+
+      <fieldset class="field">
+        <legend>Czy będziesz z nami? *</legend>
+        <div class="choice-row" role="radiogroup" aria-label="Obecność">
+          <label class="choice"><input type="radio" name="attending" value="tak" required /><span>Tak, będę! 💛</span></label>
+          <label class="choice"><input type="radio" name="attending" value="nie" /><span>Niestety nie mogę</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Pola widoczne tylko dla "Tak" -->
+      <div class="attend-only" id="attendOnly">
+        <div class="field">
+          <label for="fGuests">Liczba osób (razem z Tobą)</label>
+          <select id="fGuests" name="guests">
+            <option value="1">1 osoba</option>
+            <option value="2">2 osoby</option>
+            <option value="3">3 osoby</option>
+            <option value="4">4 osoby</option>
+          </select>
+        </div>
+
+        <fieldset class="field">
+          <legend>Wybór dania głównego</legend>
+          <div class="menu-grid">
+            <label class="menu-card">
+              <input type="radio" name="menu" value="Mięsne" />
+              <span class="mc-emoji">🍗</span>
+              <span class="mc-title">Mięsne</span>
+              <span class="mc-desc">Pierś z kaczki, sos wiśniowy</span>
+            </label>
+            <label class="menu-card">
+              <input type="radio" name="menu" value="Rybne" />
+              <span class="mc-emoji">🐟</span>
+              <span class="mc-title">Rybne</span>
+              <span class="mc-desc">Grillowany dorsz, masło ziołowe</span>
+            </label>
+            <label class="menu-card">
+              <input type="radio" name="menu" value="Wegetariańskie" />
+              <span class="mc-emoji">🥗</span>
+              <span class="mc-title">Wege</span>
+              <span class="mc-desc">Risotto z warzywami sezonowymi</span>
+            </label>
+            <label class="menu-card">
+              <input type="radio" name="menu" value="Wegańskie" />
+              <span class="mc-emoji">🌱</span>
+              <span class="mc-title">Wegańskie</span>
+              <span class="mc-desc">Curry z ciecierzycą i ryżem</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Alergie / dieta (zaznacz, jeśli dotyczy)</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="allergy" value="Gluten" /><span>Gluten</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Laktoza" /><span>Laktoza</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Orzechy" /><span>Orzechy</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Jaja" /><span>Jaja</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Skorupiaki" /><span>Skorupiaki</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Bezglutenowa" /><span>Dieta bezglutenowa</span></label>
+          </div>
+          <input type="text" id="fAllergyOther" name="allergy_other" placeholder="Inne alergie / szczególne potrzeby żywieniowe" />
+        </fieldset>
+
+        <div class="field">
+          <label for="fSong">Piosenka, przy której musisz zatańczyć 🎶</label>
+          <input type="text" id="fSong" name="song" placeholder="Podpowiedz nam hit na parkiet" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="fNote">Wiadomość dla Pary Młodej</label>
+        <textarea id="fNote" name="note" rows="3" placeholder="Kilka ciepłych słów (opcjonalnie)"></textarea>
+      </div>
+
+      <p class="form-error" id="formError" hidden></p>
+      <button type="submit" class="btn btn-primary btn-block">Wyślij potwierdzenie</button>
+      <p class="form-hint">To wersja demonstracyjna — odpowiedź zapisuje się na tym urządzeniu.
+        <a href="#" id="showSaved">Zobacz zapisane odpowiedzi</a>
+      </p>
+    </form>
+
+    <!-- Podziękowanie po wysłaniu -->
+    <div class="rsvp-thanks" id="rsvpThanks" hidden>
+      <div class="thanks-card">
+        <div class="thanks-heart">💛</div>
+        <h3 id="thanksTitle">Dziękujemy!</h3>
+        <p id="thanksMsg"></p>
+        <button type="button" class="btn btn-ghost" id="editAgain">Edytuj odpowiedź</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INFORMACJE (dress code / prezenty / faq) ===================== -->
+  <section class="section info" id="info">
+    <div class="section-head reveal">
+      <span class="eyebrow">dobrze wiedzieć</span>
+      <h2>Informacje dla gości</h2>
+    </div>
+
+    <div class="info-cards">
+      <article class="info-card reveal">
+        <div class="ic-icon">👗</div>
+        <h3>Dress code</h3>
+        <p>Strój elegancki (formal / cocktail). Będzie nam miło, jeśli wpleciecie nasze kolory:</p>
+        <div class="swatches">
+          <span class="sw sw-sage" title="Szałwiowy"></span>
+          <span class="sw sw-butter" title="Masłowy żółty"></span>
+          <span class="sw sw-cream" title="Kremowy"></span>
+        </div>
+        <p class="ic-note">Prosimy o unikanie bieli. 🤍</p>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="ic-icon">🎁</div>
+        <h3>Prezenty</h3>
+        <p>Waszą obecność cenimy najbardziej. Zamiast kwiatów, które szybko przekwitną, będziemy wdzięczni za drobny gest wspierający naszą podróż poślubną.</p>
+        <p class="ic-note">Nic jednak nie jest obowiązkiem — liczy się to, że jesteście.</p>
+      </article>
+
+      <article class="info-card reveal">
+        <div class="ic-icon">📍</div>
+        <h3>Miejsce</h3>
+        <p>Dokładny adres ceremonii i sali podamy wkrótce w tym miejscu. Zaplanujemy też wskazówki dojazdu.</p>
+        <p class="ic-note">Zajrzyj tu bliżej terminu.</p>
+      </article>
+    </div>
+
+    <div class="faq">
+      <h3 class="faq-title reveal">Najczęstsze pytania</h3>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Czy mogę przyjść z osobą towarzyszącą?<span class="faq-plus"></span></button>
+        <div class="faq-a"><p>Tak — wpisz liczbę osób w formularzu RSVP. Jeśli masz wątpliwości, napisz do nas w wiadomości.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Czy dzieci są mile widziane?<span class="faq-plus"></span></button>
+        <div class="faq-a"><p>Oczywiście! Daj nam tylko znać w formularzu, ile osób i w jakim wieku, byśmy przygotowali miejsca.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Do kiedy trzeba potwierdzić obecność?<span class="faq-plus"></span></button>
+        <div class="faq-a"><p>Prosimy o potwierdzenie najpóźniej do <strong>20 maja 2027</strong>, byśmy zdążyli dopiąć wszystko na ostatni guzik.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Gdzie mogę zaparkować / przenocować?<span class="faq-plus"></span></button>
+        <div class="faq-a"><p>Informacje o parkingu i sugerowanych noclegach pojawią się w sekcji „Miejsce" bliżej terminu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STOPKA ===================== -->
+  <footer class="site-footer">
+    <div class="footer-monogram">O <span>&amp;</span> J</div>
+    <p class="footer-names">Olga &amp; Jakub</p>
+    <p class="footer-date">20 lipca 2027</p>
+    <p class="footer-love">Nie możemy się doczekać, by świętować z Wami. 💛</p>
+    <a href="#rsvp" class="btn btn-ghost">Potwierdź obecność</a>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
