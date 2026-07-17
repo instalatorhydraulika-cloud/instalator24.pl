@@ -274,4 +274,68 @@
     });
   }
 
+  /* ---------- 9. GALERIA + LIGHTBOX ---------- */
+  const figures = $$("#galleryGrid .ph");
+  const lb = $("#lightbox");
+  const lbImg = $("#lbImg");
+  const lbCap = $("#lbCap");
+  let lbIndex = 0;
+
+  // wstrzyknij podpisy na kafelki
+  figures.forEach((fig) => {
+    const cap = fig.getAttribute("data-cap");
+    if (cap) {
+      const span = document.createElement("figcaption");
+      span.className = "ph-cap";
+      span.textContent = cap;
+      fig.appendChild(span);
+    }
+  });
+
+  function openLb(i) {
+    lbIndex = (i + figures.length) % figures.length;
+    const fig = figures[lbIndex];
+    lbImg.src = fig.getAttribute("data-full");
+    lbImg.alt = fig.querySelector("img") ? fig.querySelector("img").alt : "";
+    lbCap.textContent = fig.getAttribute("data-cap") || "";
+    lb.classList.add("show");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
+  function closeLb() {
+    lb.classList.remove("show");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
+  }
+  function stepLb(d) {
+    // krótka animacja ponownego pojawienia
+    lbImg.style.animation = "none";
+    void lbImg.offsetWidth;
+    lbImg.style.animation = "";
+    openLb(lbIndex + d);
+  }
+
+  if (lb) {
+    figures.forEach((fig, i) => {
+      fig.addEventListener("click", () => openLb(i));
+    });
+    $("#lbClose").addEventListener("click", closeLb);
+    $("#lbPrev").addEventListener("click", (e) => { e.stopPropagation(); stepLb(-1); });
+    $("#lbNext").addEventListener("click", (e) => { e.stopPropagation(); stepLb(1); });
+    lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("show")) return;
+      if (e.key === "Escape") closeLb();
+      else if (e.key === "ArrowLeft") stepLb(-1);
+      else if (e.key === "ArrowRight") stepLb(1);
+    });
+    // swipe na telefonie
+    let sx = 0;
+    lb.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 45) stepLb(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  }
+
 })();

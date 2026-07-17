@@ -96,6 +96,20 @@
     </a>
   </header>
 
+  <!-- ===================== WYRÓŻNIONE: ZARĘCZYNY ===================== -->
+  <section class="feature" id="zareczyny" aria-label="Zaręczyny">
+    <div class="feature-media">
+      <img src="assets/photo-1.jpg" alt="Olga i Jakub — moment zaręczyn na plaży o zachodzie słońca"
+           loading="lazy" decoding="async" width="960" height="1280" />
+      <div class="feature-veil"></div>
+    </div>
+    <div class="feature-text reveal">
+      <span class="feature-eyebrow">i tak się zaczęło „na zawsze"</span>
+      <h2 class="feature-title">Powiedziała <em>TAK</em></h2>
+      <p class="feature-sub">💍 &nbsp;a teraz zapraszamy Was, byście świętowali z nami</p>
+    </div>
+  </section>
+
   <!-- ===================== ODLICZANIE ===================== -->
   <section class="countdown-band" aria-label="Odliczanie do ślubu">
     <p class="cd-title">Zostało już tylko…</p>
@@ -120,24 +134,28 @@
     <ol class="timeline">
       <li class="reveal">
         <span class="tl-dot"></span>
+        <img class="tl-photo" src="assets/thumb-3.jpg" alt="Olga i Jakub" loading="lazy" width="400" height="400" />
         <span class="tl-year">2019</span>
         <h3>Pierwsze spotkanie</h3>
         <p>Przypadkowe „cześć", które zmieniło wszystko. Do dziś spieramy się, kto zaczął rozmowę pierwszy.</p>
       </li>
       <li class="reveal">
         <span class="tl-dot"></span>
+        <img class="tl-photo" src="assets/thumb-4.jpg" alt="Olga i Jakub nad morzem" loading="lazy" width="400" height="400" />
         <span class="tl-year">2021</span>
         <h3>Wspólne życie</h3>
         <p>Pierwsze mieszkanie, pierwsza roślina (przeżyła!) i tysiące małych codziennych chwil.</p>
       </li>
       <li class="reveal">
         <span class="tl-dot"></span>
+        <img class="tl-photo" src="assets/thumb-1.jpg" alt="Zaręczyny — pierścionek" loading="lazy" width="400" height="400" />
         <span class="tl-year">2026</span>
         <h3>Oświadczyny</h3>
         <p>Zachód słońca, drżące ręce i jedno wielkie „TAK". 💍</p>
       </li>
       <li class="reveal">
         <span class="tl-dot"></span>
+        <img class="tl-photo" src="assets/thumb-5.jpg" alt="Olga i Jakub o zachodzie słońca" loading="lazy" width="400" height="400" />
         <span class="tl-year">2027</span>
         <h3>Mówimy „tak"</h3>
         <p>20 lipca powiemy sobie to najważniejsze — i chcemy, żebyście byli tam z nami.</p>
@@ -187,15 +205,24 @@
       <h2>Nasza galeria</h2>
       <p class="section-sub">Kilka kadrów z naszej wspólnej drogi. Więcej — już wkrótce.</p>
     </div>
-    <div class="gallery-grid">
-      <figure class="ph reveal" style="--i:0"><span>Wasze zdjęcie</span></figure>
-      <figure class="ph reveal" style="--i:1"><span>Wasze zdjęcie</span></figure>
-      <figure class="ph reveal" style="--i:2"><span>Wasze zdjęcie</span></figure>
-      <figure class="ph reveal" style="--i:3"><span>Wasze zdjęcie</span></figure>
-      <figure class="ph reveal" style="--i:4"><span>Wasze zdjęcie</span></figure>
-      <figure class="ph reveal" style="--i:5"><span>Wasze zdjęcie</span></figure>
+    <div class="gallery-grid" id="galleryGrid">
+      <figure class="ph tall reveal" style="--i:0" data-full="assets/photo-1.jpg" data-cap="Powiedziała TAK 💍">
+        <img src="assets/photo-1.jpg" alt="Zaręczyny na plaży" loading="lazy" decoding="async" width="960" height="1280" />
+      </figure>
+      <figure class="ph tall reveal" style="--i:1" data-full="assets/photo-2.jpg" data-cap="Zachód słońca tylko dla nas">
+        <img src="assets/photo-2.jpg" alt="Zachód słońca na tarasie" loading="lazy" decoding="async" width="960" height="1280" />
+      </figure>
+      <figure class="ph reveal" style="--i:2" data-full="assets/photo-3.jpg" data-cap="Słoneczne dni we dwoje">
+        <img src="assets/photo-3.jpg" alt="Olga i Jakub nad morzem" loading="lazy" decoding="async" width="960" height="1280" />
+      </figure>
+      <figure class="ph reveal" style="--i:3" data-full="assets/photo-4.jpg" data-cap="Nasze wieczory">
+        <img src="assets/photo-4.jpg" alt="Olga i Jakub — elegancko" loading="lazy" decoding="async" width="960" height="1280" />
+      </figure>
+      <figure class="ph wide reveal" style="--i:4" data-full="assets/photo-5.jpg" data-cap="Patrząc w tę samą stronę">
+        <img src="assets/photo-5.jpg" alt="Olga i Jakub patrzą na zachód słońca" loading="lazy" decoding="async" width="960" height="1280" />
+      </figure>
     </div>
-    <p class="gallery-note reveal">Podmień kafelki na własne zdjęcia w pliku <code>index.html</code> (sekcja „galeria").</p>
+    <p class="gallery-note reveal">Dotknij zdjęcia, aby powiększyć.</p>
   </section>
 
   <!-- ===================== RSVP ===================== -->
@@ -373,6 +400,17 @@
     <p class="footer-love">Nie możemy się doczekać, by świętować z Wami. 💛</p>
     <a href="#rsvp" class="btn btn-ghost">Potwierdź obecność</a>
   </footer>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Podgląd zdjęcia">
+    <button class="lb-close" id="lbClose" aria-label="Zamknij">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Poprzednie">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Następne">&#8250;</button>
+  </div>
 
 </main>
 

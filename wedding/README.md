@@ -9,8 +9,11 @@ frameworków — wystarczy otworzyć `index.html`.
 wedding/
 ├── index.html   ← treść (imiona, data, teksty, sekcje)
 ├── style.css    ← wygląd i kolory
-└── script.js    ← animacje, odliczanie, formularz RSVP
+├── script.js    ← animacje, odliczanie, formularz RSVP, galeria/lightbox
+└── assets/      ← zdjęcia (photo-1..5.jpg + miniatury thumb-1..5.jpg)
 ```
+
+Zdjęcia są już wgrane, wyprostowane (EXIF), wykadrowane i zoptymalizowane pod web.
 
 ## Jak podejrzeć
 Otwórz `index.html` w przeglądarce (najlepiej w trybie widoku mobilnego).
@@ -25,7 +28,7 @@ python3 -m http.server 8080   # → http://localhost:8080
 |---|---|
 | Imiona, datę, teksty | `index.html` |
 | Godziny w „Planie dnia" | `index.html`, sekcja `id="plan"` |
-| Zdjęcia w galerii | `index.html`, sekcja `id="galeria"` — podmień kafelki `.ph` na `<img>` |
+| Zdjęcia (galeria, oś czasu, sekcja zaręczyn) | katalog `assets/` — podmień pliki `photo-*.jpg` i `thumb-*.jpg` (zachowaj nazwy) lub edytuj `<img>` w `index.html` |
 | Kolory (szałwiowy / masłowy) | `style.css`, sekcja `:root` na górze |
 | Datę ślubu dla odliczania | `script.js`, stała `WEDDING_DATE` |
 | Termin RSVP | `script.js`, stała `RSVP_DEADLINE` |
