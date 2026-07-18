@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  const WEDDING_DATE = new Date("2027-07-20T15:00:00+02:00");
+  const WEDDING_DATE = new Date("2027-08-20T17:00:00+02:00");
   const RSVP_DEADLINE = "20 maja 2027";
   const STORAGE_KEY = "rsvp_olga_jakub";
 
@@ -12,33 +12,68 @@
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- 1. INTRO: KOPERTA ---------- */
+  /* ---------- 1. INTRO: KOPERTA (wieloetapowa animacja) ---------- */
   const envScreen = $("#envelopeScreen");
   const envelope = $("#envelope");
+  const envParticles = $("#envParticles");
   let opened = false;
 
   document.body.classList.add("no-scroll");
 
+  // dryfujące serca/płatki w tle intro
+  if (envParticles && !reduceMotion) {
+    const glyphs = ["✦", "❀", "♡", "✿", "❁"];
+    for (let i = 0; i < 16; i++) {
+      const s = document.createElement("span");
+      s.className = "env-particle";
+      s.textContent = glyphs[i % glyphs.length];
+      s.style.left = Math.random() * 100 + "%";
+      s.style.fontSize = 8 + Math.random() * 16 + "px";
+      s.style.animationDuration = 7 + Math.random() * 9 + "s";
+      s.style.animationDelay = -Math.random() * 12 + "s";
+      s.style.opacity = 0.25 + Math.random() * 0.45;
+      envParticles.appendChild(s);
+    }
+  }
+
   function openEnvelope() {
     if (opened) return;
     opened = true;
-    envelope.classList.add("opening");
+
+    if (reduceMotion) {
+      envScreen.classList.add("open");
+      document.body.classList.remove("no-scroll");
+      window.dispatchEvent(new Event("scroll"));
+      return;
+    }
+
+    // etap 1: pieczęć pęka
+    envelope.classList.add("seal-break");
+    // etap 2: klapa się otwiera
+    setTimeout(() => envelope.classList.add("flap-open"), 480);
+    // etap 3: list wysuwa się i rośnie
+    setTimeout(() => envelope.classList.add("letter-up"), 1050);
+    // etap 4: treść listu się pojawia
+    setTimeout(() => envelope.classList.add("letter-show"), 1500);
+    // etap 5: całość znika, odsłania stronę
     setTimeout(() => {
       envScreen.classList.add("open");
       document.body.classList.remove("no-scroll");
-      // uruchom reveal dla widocznych sekcji
       window.dispatchEvent(new Event("scroll"));
-    }, reduceMotion ? 200 : 1600);
+    }, 3200);
   }
 
-  if (envelope) {
-    envelope.addEventListener("click", openEnvelope);
-    envelope.addEventListener("keydown", (e) => {
+  function bindOpen(el) {
+    if (!el) return;
+    el.addEventListener("click", openEnvelope);
+    el.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openEnvelope(); }
     });
   }
-  // awaryjnie: gdyby ktoś nie kliknął, otwórz automatycznie po 6 s
-  setTimeout(() => { if (!opened) openEnvelope(); }, 6000);
+  bindOpen(envelope);
+  bindOpen($("#envOpenBtn"));
+  // jeśli nikt nie dotknie — koperta otwiera się sama po chwili
+  setTimeout(() => { if (!opened) openEnvelope(); }, 4200);
 
   /* ---------- 2. DRYFUJĄCE LIŚCIE ---------- */
   const petalsBox = $(".petals");
