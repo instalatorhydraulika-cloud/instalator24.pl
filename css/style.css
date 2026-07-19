@@ -79,7 +79,7 @@ svg { max-width: 100%; }
 a { color: var(--fi-accent-dark); text-decoration: none; transition: color var(--fi-transition); }
 a:hover { color: var(--fi-accent); }
 
-h1, h2, h3, h4 { color: var(--fi-primary); line-height: 1.2; margin: 0 0 .5em; font-weight: 800; letter-spacing: -.02em; }
+h1, h2, h3, h4 { color: var(--fi-primary); line-height: 1.2; margin: 0 0 .5em; font-weight: 800; letter-spacing: -.02em; overflow-wrap: break-word; }
 h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
 h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); }
 h3 { font-size: 1.3rem; }
@@ -206,6 +206,10 @@ ul { margin: 0; padding: 0; }
             mask-image: radial-gradient(80% 70% at 50% 0%, #000, transparent 75%);
 }
 .fi-hero .fi-container { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: center; }
+/* min-width:0 pozwala kolumnom siatki zwężać się poniżej min-content —
+   zapobiega przepełnieniu poziomemu na mobile (długa etykieta, formularz). */
+.fi-hero-content, .fi-hero-card { min-width: 0; }
+.fi-eyebrow { max-width: 100%; }
 
 .fi-hero .fi-eyebrow { background: rgba(14,165,233,.16); color: #38bdf8; }
 .fi-hero h1 { color: #fff; margin: 18px 0 20px; }
@@ -630,7 +634,9 @@ ul { margin: 0; padding: 0; }
     body.has-mobile-bar { padding-bottom: 70px; }
     .fi-cta-band .fi-cta-inner { flex-direction: column; align-items: flex-start; }
     .fi-about-badge { position: static; margin-top: 20px; max-width: none; }
-    .fi-hero-cta .fi-btn { flex: 1 1 auto; }
+    .fi-hero-cta .fi-btn { flex: 1 1 100%; }
+    /* Na wąskich ekranach dłuższe etykiety przycisków mogą się zawijać. */
+    .fi-btn { white-space: normal; }
 }
 
 @media (max-width: 420px) {

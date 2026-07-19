@@ -33,10 +33,10 @@ jobs:
         with:
           enablement: true
 
-      - name: Spakuj artefakt podglądu
+      - name: Spakuj stronę (katalog główny)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: .
 
       - name: Wdróż na GitHub Pages
         id: deployment

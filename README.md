@@ -1,118 +1,98 @@
-# FlowInstal — strona WWW (motyw WordPress)
+# FlowInstal — strona WWW (statyczna, bez WordPressa)
 
-Rozbudowana, konwersyjna strona dla firmy instalatorskiej **FlowInstal** (Maciej Kolasa),
-nastawiona na rynek lokalny: **Brzeziny i okolice (woj. łódzkie)** w promieniu 20 km
-(Stryków, Andrespol, Koluszki, Nowosolna, Łódź Widzew).
+Szybka, lekka strona wizytówka/landing page dla firmy instalatorskiej
+**FlowInstal** (Maciej Kolasa), z marketingiem skupionym na **wodnym ogrzewaniu
+podłogowym**, nastawiona na rynek lokalny: **Brzeziny i okolice (woj. łódzkie)**
+w promieniu 20 km (Stryków, Andrespol, Koluszki, Nowosolna, Łódź Widzew).
 
-Całość to samodzielny **motyw WordPress** umieszczony w katalogu:
+To **czysty statyczny serwis** — HTML + CSS + JavaScript. Bez WordPressa, bez PHP,
+bez bazy danych i wtyczek. Hostujesz go wszędzie i ładuje się błyskawicznie.
+
+---
+
+## 📂 Struktura
 
 ```
-wp-content/themes/flowinstal/
+/
+├── index.html                  # Cała strona główna (wszystkie sekcje)
+├── polityka-prywatnosci.html   # Podstrona polityki prywatności (do uzupełnienia)
+├── 404.html                    # Strona błędu 404
+├── css/style.css               # Wszystkie style (zmienne CSS, responsywność)
+├── js/main.js                  # Interakcje + wysyłka formularza (Web3Forms)
+├── assets/
+│   ├── favicon.svg             # Ikona strony
+│   └── screenshot.png          # Obraz podglądu (Open Graph / social media)
+├── robots.txt, sitemap.xml, site.webmanifest, .nojekyll
+└── .github/workflows/          # Opcjonalna auto-publikacja na GitHub Pages
 ```
 
 ---
 
-## 🚀 Instalacja (krok po kroku)
+## 🚀 Uruchomienie / hosting
 
-### Wariant A — przez panel WordPress (najprostszy)
-1. Spakuj folder `wp-content/themes/flowinstal` do pliku ZIP (sam folder `flowinstal`).
-2. W panelu WordPress wejdź w **Wygląd → Motywy → Dodaj nowy → Wyślij motyw**.
-3. Wgraj plik ZIP i kliknij **Zainstaluj**, a następnie **Włącz**.
-4. Wejdź w **Ustawienia → Czytanie** i ustaw „Strona główna wyświetla" na **stronę statyczną**
-   (utwórz pustą stronę np. „Start" i wskaż ją jako stronę główną — szablon `front-page.php`
-   sam wyświetli pełny landing page).
+Strona nie wymaga żadnego backendu. Wystarczy wgrać pliki na dowolny hosting:
 
-### Wariant B — przez FTP / menedżer plików
-1. Skopiuj folder `flowinstal` do `wp-content/themes/` na serwerze.
-2. Włącz motyw w **Wygląd → Motywy**.
+- **Zwykły hosting / FTP** — skopiuj całą zawartość repozytorium do katalogu
+  `public_html` (lub głównego katalogu domeny). Gotowe.
+- **GitHub Pages** — w repozytorium: `Settings → Pages → Source: GitHub Actions`.
+  Dołączony workflow opublikuje stronę automatycznie.
+- **Netlify / Vercel / Cloudflare Pages** — przeciągnij folder lub podłącz repo,
+  bez żadnej konfiguracji budowania.
 
----
-
-## ⚙️ Konfiguracja (bez kodowania)
-
-Wszystko ustawisz w: **Wygląd → Dostosuj → FlowInstal — ustawienia**.
-
-| Sekcja | Co ustawisz |
-|---|---|
-| **Dane kontaktowe** | Telefon, WhatsApp, e-mail, adres, godziny pracy, NIP |
-| **Social media i Google** | Linki do Facebooka, Instagrama, wizytówki Google Maps, OLX |
-| **Sekcja główna (Hero)** | Nagłówek, podnagłówek, etykieta nad tytułem |
-| **Promocja, pasek i pop-up** | Górny pasek promocyjny, licznik czasu, wyskakujące okienko z ofertą |
-| **Mapa Google** | Adres osadzenia mapy obszaru działania |
-| **Zapytania z formularza** | E-mail, na który mają trafiać leady |
-
-> ⚠️ **Najważniejsze na start:** zmień telefon i e-mail (domyślnie są to wartości
-> przykładowe `+48 600 000 000`). To wartości, które klient zobaczy i kliknie.
+Lokalnie wystarczy otworzyć `index.html` w przeglądarce.
 
 ---
 
-## 💡 Elementy budujące konwersję (wbudowane)
+## ✉️ Konfiguracja formularza (WAŻNE)
 
-- **Pasek promocyjny** u góry + opcjonalny **licznik czasu** (urgency).
-- **Formularz szybkiej wyceny** w sekcji hero (od razu na pierwszym ekranie).
-- **Lepkie CTA telefon** w nagłówku + **pływające przyciski** telefon i WhatsApp.
-- **Dolny pasek mobilny** „Zadzwoń / Bezpłatna wycena" (tylko na telefonach).
-- **Pop-up z ofertą** (po 12 s lub przy próbie opuszczenia strony — exit-intent).
-- **Animowane liczniki** (4 lata, 250+ instalacji, 20 km, 100%).
-- **Sekcja „Dlaczego ja"** (USP), **proces 1–2–3–4**, **realizacje**, **opinie z gwiazdkami**.
-- **Cennik orientacyjny** (transparentność = lepsze leady).
-- **Sekcja obszaru działania + mapa Google** (mocny sygnał lokalnego SEO).
-- **FAQ** (accordion) zsynchronizowane z danymi strukturalnymi (rich snippet w Google).
-- **Pasek cookie (RODO)** i **przycisk „do góry"**.
-- **WhatsApp click-to-chat** z gotową wiadomością.
+Formularze wysyłają zapytania przez **[Web3Forms](https://web3forms.com)** —
+darmową usługę, która nie wymaga backendu ani zakładania konta (podajesz tylko
+e-mail, na który mają trafiać zapytania, i dostajesz klucz).
+
+1. Wejdź na **https://web3forms.com**, podaj swój e-mail, skopiuj **Access Key**.
+2. Otwórz plik **`js/main.js`** i w pierwszej linii wklej klucz:
+   ```js
+   var WEB3FORMS_KEY = 'TWÓJ-KLUCZ-Z-WEB3FORMS';
+   ```
+3. Gotowe — zapytania z formularzy będą przychodzić na Twój e-mail.
+
+> Dopóki klucz nie jest ustawiony, formularz działa w trybie demonstracyjnym
+> (waliduje dane, ale nie wysyła e-maili). Telefon i WhatsApp działają zawsze.
+
+---
+
+## ✏️ Co uzupełnić / edytować
+
+Wszystko edytujesz bezpośrednio w plikach (zwykły tekst):
+
+- **Telefon i e-mail** — w `index.html` wyszukaj `+48 600 000 000` oraz
+  `kontakt@flowinstal.pl` i podmień na prawdziwe (występują w kilku miejscach:
+  nagłówek, kontakt, stopka, przyciski, `404.html`).
+- **Klucz formularza** — `js/main.js` (patrz wyżej).
+- **Linki social media / Google** — w stopce `index.html` (Facebook, Instagram,
+  wizytówka Google).
+- **Mapa Google** — w sekcji „Obszar działania" podmień `src` w `<iframe>`
+  (w Mapach Google: Udostępnij → Umieść mapę).
+- **Zdjęcia realizacji** — sekcja „Realizacje" (obecnie kafelki-placeholdery).
+- **Własne zdjęcie** — sekcja „O mnie".
+- **Prawdziwe opinie** — sekcja „Opinie".
+- **Domena** — w `index.html` (canonical, dane strukturalne), `robots.txt`,
+  `sitemap.xml` podmień `https://instalator24.pl` na docelowy adres.
+- **Polityka prywatności** — uzupełnij `polityka-prywatnosci.html`.
+
+---
+
+## 💡 Elementy budujące konwersję
+
+Pasek promocyjny z licznikiem, formularz szybkiej wyceny w hero, lepkie CTA
+telefon, pływające przyciski telefon + WhatsApp, dolny pasek mobilny, pop-up
+(po 12 s / exit-intent), animowane liczniki, opinie z gwiazdkami, sekcja
+korzyści, FAQ, cookie/RODO, przycisk „do góry", WhatsApp click-to-chat.
 
 ## 🔍 SEO lokalne (wbudowane)
 
-- Dane strukturalne **Schema.org**: `LocalBusiness` + `HVACBusiness` + `Plumber`,
-  obszar działania (`GeoCircle` 20 km), godziny otwarcia, oferta, oceny.
-- **FAQPage** (szansa na rozszerzone wyniki w Google).
-- Meta **geo** (region łódzki, współrzędne Brzezin), Open Graph, `theme-color`.
-- Szybkie ładowanie: brak ciężkich frameworków, czysty CSS/JS, font z `display=swap`.
+Dane strukturalne Schema.org (`LocalBusiness` + `HVACBusiness` + `Plumber`),
+`FAQPage`, meta geo (Brzeziny), Open Graph, canonical, sitemap, robots.txt.
+Zoptymalizowane pod frazy typu „ogrzewanie podłogowe Brzeziny".
 
----
-
-## 📨 Formularze i leady
-
-Każdy formularz (hero, pop-up, sekcja kontakt):
-- waliduje dane po stronie przeglądarki (telefon min. 9 cyfr, wymagana zgoda),
-- wysyła zgłoszenie przez AJAX i **e-mailem** na adres z ustawień,
-- zapisuje **kopię zapytania** w panelu: **Zapytania (leady)** — na wypadek, gdyby
-  e-mail nie dotarł,
-- ma ochronę antyspamową (honeypot + nonce).
-
-> 📧 Jeśli e-maile nie przychodzą, zainstaluj wtyczkę SMTP (np. *WP Mail SMTP*) —
-> to typowa konfiguracja serwera, niezależna od motywu.
-
----
-
-## 📂 Struktura motywu
-
-```
-flowinstal/
-├── style.css              # System projektowy + wszystkie style
-├── functions.php          # Konfiguracja, ikony SVG, helpery
-├── header.php / footer.php
-├── front-page.php         # Strona główna (składa sekcje)
-├── index.php / page.php / single.php / 404.php
-├── inc/
-│   ├── customizer.php      # Panel ustawień (Wygląd → Dostosuj)
-│   ├── contact-form.php    # Formularz + obsługa AJAX + zapis leadów
-│   └── schema.php          # Dane strukturalne SEO + FAQ
-├── template-parts/        # Sekcje strony głównej
-│   ├── hero, trustbar, services, stats, why, process,
-│   ├── about, gallery, reviews, pricing, area, faq, cta, contact
-└── assets/js/             # main.js (interakcje), customizer.js (podgląd)
-```
-
----
-
-## 📝 Do uzupełnienia przez właściciela
-
-- [ ] Numer telefonu i e-mail (Dostosuj → Dane kontaktowe).
-- [ ] Linki do Facebooka / Instagrama / wizytówki Google.
-- [ ] Adres osadzenia mapy Google (Dostosuj → Mapa Google).
-- [ ] Zdjęcia realizacji (sekcja „Realizacje" — obecnie placeholdery).
-- [ ] Własne zdjęcie do sekcji „O mnie".
-- [ ] Prawdziwe opinie klientów (po zebraniu na wizytówce Google).
-- [ ] Strona „Polityka prywatności" (Ustawienia → Prywatność).
-```
+Wyceny przygotowywane są **po wizji lokalnej** (brak publicznego cennika).

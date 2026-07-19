@@ -1,6 +1,6 @@
-# Artefakty podglądu / build (nie wchodzą do repo)
+# Narzędzia build/podglądu (nie są częścią serwowanej strony)
+_build/
 _preview/
-wp-content/themes/flowinstal/_podglad.html
 FlowInstal-podglad.html
 
 # Systemowe

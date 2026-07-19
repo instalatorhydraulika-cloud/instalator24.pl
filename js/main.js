@@ -1,17 +1,25 @@
 /**
- * FlowInstal — skrypty interakcji (Vanilla JS, bez bibliotek).
- * Menu mobilne, smooth scroll, walidacja + AJAX formularza, FAQ,
- * liczniki, reveal, pop-up, cookie, licznik promocji, back-to-top.
+ * FlowInstal — skrypty interakcji (statyczna strona, czysty Vanilla JS).
+ * Menu mobilne, smooth scroll, walidacja + wysyłka formularza (Web3Forms),
+ * FAQ, liczniki, reveal, pop-up, cookie, licznik promocji, back-to-top.
+ *
+ * ─────────────────────────────────────────────────────────────────────────
+ *  KONFIGURACJA FORMULARZA (jedyne miejsce do edycji)
+ *  Wklej darmowy klucz z https://web3forms.com (podajesz tylko e-mail,
+ *  na który mają przychodzić zapytania — bez zakładania konta).
+ * ─────────────────────────────────────────────────────────────────────────
  */
+var WEB3FORMS_KEY = 'WKLEJ_TUTAJ_KLUCZ_WEB3FORMS';
+
 (function () {
 	'use strict';
 
 	var d = document;
-	var data = window.flowinstalData || {};
-
 	function on(el, ev, fn) { if (el) el.addEventListener(ev, fn); }
 	function $(s, c) { return (c || d).querySelector(s); }
 	function $all(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
+
+	var keyReady = WEB3FORMS_KEY && WEB3FORMS_KEY.indexOf('WKLEJ') === -1;
 
 	/* ---------- 1. Menu mobilne (hamburger) ---------- */
 	var burger = $('#fi-burger');
@@ -22,7 +30,6 @@
 		burger.setAttribute('aria-expanded', open ? 'true' : 'false');
 		d.body.style.overflow = open ? 'hidden' : '';
 	});
-	// Zamknij menu po kliknięciu w link.
 	if (nav) {
 		$all('a', nav).forEach(function (a) {
 			on(a, 'click', function () {
@@ -34,20 +41,17 @@
 		});
 	}
 
-	/* ---------- 2. Smooth scroll dla kotwic ---------- */
+	/* ---------- 2. Smooth scroll ---------- */
 	$all('a[href^="#"]').forEach(function (a) {
 		on(a, 'click', function (e) {
 			var id = a.getAttribute('href');
 			if (id.length < 2) return;
 			var target = $(id);
-			if (target) {
-				e.preventDefault();
-				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			}
+			if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
 		});
 	});
 
-	/* ---------- 3. Cień nagłówka przy przewijaniu ---------- */
+	/* ---------- 3. Nagłówek / back-to-top ---------- */
 	var header = $('#fi-header');
 	var totop = $('#fi-totop');
 	function onScroll() {
@@ -57,10 +61,9 @@
 	}
 	window.addEventListener('scroll', onScroll, { passive: true });
 	onScroll();
-
 	on(totop, 'click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-	/* ---------- 4. FAQ accordion ---------- */
+	/* ---------- 4. FAQ ---------- */
 	$all('.fi-faq-q').forEach(function (btn) {
 		on(btn, 'click', function () {
 			var item = btn.closest('.fi-faq-item');
@@ -71,24 +74,19 @@
 		});
 	});
 
-	/* ---------- 5. Walidacja + wysyłka formularza (AJAX) ---------- */
+	/* ---------- 5. Walidacja + wysyłka (Web3Forms) ---------- */
 	function validateField(field) {
 		var input = $('input, select, textarea', field);
 		if (!input || !input.required) return true;
 		var val = input.value.trim();
 		var ok = val !== '';
-		if (ok && input.type === 'tel') {
-			ok = (val.replace(/[^0-9]/g, '').length >= 9);
-		}
-		if (ok && input.type === 'email') {
-			ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-		}
+		if (ok && input.type === 'tel') { ok = (val.replace(/[^0-9]/g, '').length >= 9); }
+		if (ok && input.type === 'email') { ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val); }
 		field.classList.toggle('has-error', !ok);
 		return ok;
 	}
 
 	$all('.fi-form').forEach(function (form) {
-		// Walidacja w locie.
 		$all('.fi-field', form).forEach(function (field) {
 			var input = $('input, select, textarea', field);
 			on(input, 'blur', function () { validateField(field); });
@@ -98,9 +96,7 @@
 		on(form, 'submit', function (e) {
 			e.preventDefault();
 			var valid = true;
-			$all('.fi-field', form).forEach(function (field) {
-				if (!validateField(field)) valid = false;
-			});
+			$all('.fi-field', form).forEach(function (field) { if (!validateField(field)) valid = false; });
 			var consent = $('input[name="fi_consent"]', form);
 			var feedback = $('.fi-form-feedback', form);
 			if (consent && !consent.checked) {
@@ -112,59 +108,62 @@
 				if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
 				return;
 			}
+			// Honeypot
+			if (form.querySelector('[name="fi_website"]') && form.querySelector('[name="fi_website"]').value) { return; }
 
 			var btn = $('button[type="submit"]', form);
 			var btnLabel = btn ? btn.innerHTML : '';
-			if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.innerHTML = '<span>' + (data.msgSending || 'Wysyłanie…') + '</span>'; }
 
-			// Brak konfiguracji AJAX (np. podgląd statyczny) — pokaż sukces poglądowy.
-			if (!data.ajaxUrl) {
-				if (feedback) { feedback.className = 'fi-form-feedback is-success'; feedback.textContent = 'Dziękuję! (podgląd) Zapytanie zostałoby wysłane.'; }
-				if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = btnLabel; }
+			// Brak skonfigurowanego klucza — tryb demonstracyjny.
+			if (!keyReady) {
+				if (feedback) {
+					feedback.className = 'fi-form-feedback is-success';
+					feedback.textContent = 'Dziękuję! (wersja demonstracyjna) Aby formularz realnie wysyłał e-maile, wklej klucz Web3Forms w pliku js/main.js. W międzyczasie zadzwoń — chętnie pomogę.';
+				}
 				form.reset();
 				return;
 			}
 
-			var body = new FormData(form);
-			body.append('action', 'flowinstal_contact');
-			body.append('nonce', data.nonce || '');
+			if (btn) { btn.disabled = true; btn.style.opacity = '.7'; btn.innerHTML = '<span>Wysyłanie…</span>'; }
 
-			fetch(data.ajaxUrl, { method: 'POST', body: body, credentials: 'same-origin' })
+			var body = new FormData(form);
+			body.append('access_key', WEB3FORMS_KEY);
+			body.append('subject', 'Nowe zapytanie o ogrzewanie podłogowe — FlowInstal');
+			body.append('from_name', 'FlowInstal — strona WWW');
+
+			fetch('https://api.web3forms.com/submit', { method: 'POST', body: body })
 				.then(function (r) { return r.json(); })
 				.then(function (res) {
 					if (feedback) {
 						feedback.className = 'fi-form-feedback ' + (res.success ? 'is-success' : 'is-error');
-						feedback.textContent = (res.data && res.data.message) ? res.data.message : (res.success ? 'Wysłano.' : 'Wystąpił błąd.');
+						feedback.textContent = res.success
+							? 'Dziękuję! Zapytanie wysłane — odezwę się najszybciej, jak to możliwe.'
+							: (res.message || 'Nie udało się wysłać. Zadzwoń proszę bezpośrednio.');
 						feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
 					}
-					if (res.success) { form.reset(); }
+					if (res.success) form.reset();
 				})
 				.catch(function () {
 					if (feedback) { feedback.className = 'fi-form-feedback is-error'; feedback.textContent = 'Błąd połączenia. Zadzwoń proszę bezpośrednio.'; }
 				})
-				.finally(function () {
-					if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = btnLabel; }
-				});
+				.finally(function () { if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.innerHTML = btnLabel; } });
 		});
 	});
 
-	/* ---------- 6. Liczniki statystyk ---------- */
+	/* ---------- 6. Liczniki ---------- */
 	function animateCount(el) {
 		var target = parseInt(el.getAttribute('data-count'), 10) || 0;
-		var suffix = el.querySelector('span') ? el.querySelector('span').textContent : '';
 		var dur = 1400, start = null;
 		function step(ts) {
 			if (!start) start = ts;
 			var p = Math.min((ts - start) / dur, 1);
-			var val = Math.floor(p * target);
-			el.firstChild.nodeValue = val;
-			if (p < 1) requestAnimationFrame(step);
-			else el.firstChild.nodeValue = target;
+			el.firstChild.nodeValue = Math.floor(p * target);
+			if (p < 1) requestAnimationFrame(step); else el.firstChild.nodeValue = target;
 		}
 		requestAnimationFrame(step);
 	}
 
-	/* ---------- 7. Reveal on scroll + liczniki (IntersectionObserver) ---------- */
+	/* ---------- 7. Reveal + liczniki ---------- */
 	if ('IntersectionObserver' in window) {
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (en) {
@@ -183,34 +182,27 @@
 		$all('.fi-reveal').forEach(function (el) { el.classList.add('is-in'); });
 	}
 
-	/* ---------- 8. Pop-up (po 12s lub przy exit-intent) ---------- */
+	/* ---------- 8. Pop-up ---------- */
 	var popup = $('#fi-popup');
 	if (popup) {
 		var shown = false;
 		function showPopup() {
 			if (shown || sessionStorage.getItem('fi_popup_seen')) return;
-			shown = true;
-			popup.classList.add('is-open');
-			sessionStorage.setItem('fi_popup_seen', '1');
+			shown = true; popup.classList.add('is-open'); sessionStorage.setItem('fi_popup_seen', '1');
 		}
 		function closePopup() { popup.classList.remove('is-open'); }
 		setTimeout(showPopup, 12000);
-		d.addEventListener('mouseout', function (e) {
-			if (e.clientY <= 0 && !e.relatedTarget) showPopup();
-		});
+		d.addEventListener('mouseout', function (e) { if (e.clientY <= 0 && !e.relatedTarget) showPopup(); });
 		on($('#fi-popup-close'), 'click', closePopup);
 		on(popup, 'click', function (e) { if (e.target === popup) closePopup(); });
 		d.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
 	}
 
-	/* ---------- 9. Pasek cookie (RODO) ---------- */
+	/* ---------- 9. Cookie ---------- */
 	var cookie = $('#fi-cookie');
 	if (cookie && !localStorage.getItem('fi_cookie_ok')) {
 		setTimeout(function () { cookie.classList.add('is-visible'); }, 1500);
-		on($('#fi-cookie-accept'), 'click', function () {
-			localStorage.setItem('fi_cookie_ok', '1');
-			cookie.classList.remove('is-visible');
-		});
+		on($('#fi-cookie-accept'), 'click', function () { localStorage.setItem('fi_cookie_ok', '1'); cookie.classList.remove('is-visible'); });
 	}
 
 	/* ---------- 10. Licznik promocji ---------- */
@@ -221,9 +213,7 @@
 			(function tick() {
 				var diff = end - Date.now();
 				if (diff <= 0) { cd.textContent = ''; return; }
-				var dd = Math.floor(diff / 86400000);
-				var hh = Math.floor((diff % 86400000) / 3600000);
-				var mm = Math.floor((diff % 3600000) / 60000);
+				var dd = Math.floor(diff / 86400000), hh = Math.floor((diff % 86400000) / 3600000), mm = Math.floor((diff % 3600000) / 60000);
 				cd.innerHTML = '<b>' + dd + 'd</b><b>' + hh + 'h</b><b>' + mm + 'm</b>';
 				setTimeout(tick, 30000);
 			})();
