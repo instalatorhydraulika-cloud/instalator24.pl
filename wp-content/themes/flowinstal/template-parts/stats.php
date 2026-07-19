@@ -1,14 +1,14 @@
 <?php
 /**
- * Sekcja statystyk — animowane liczniki budujące zaufanie.
+ * Sekcja statystyk — animowane liczniki (fokus: ogrzewanie podłogowe).
  *
  * @package FlowInstal
  */
 $stats = array(
 	array( '4', '', __( 'lata doświadczenia', 'flowinstal' ) ),
-	array( '250', '+', __( 'połączonych instalacji', 'flowinstal' ) ),
+	array( '5000', ' m²', __( 'ułożonej podłogówki', 'flowinstal' ) ),
 	array( '20', ' km', __( 'zasięg od Brzezin', 'flowinstal' ) ),
-	array( '100', '%', __( 'zadowolonych klientów', 'flowinstal' ) ),
+	array( '100', '%', __( 'prób ciśnieniowych', 'flowinstal' ) ),
 );
 ?>
 <section class="fi-section" style="padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px)">

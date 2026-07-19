@@ -71,6 +71,11 @@ body {
 
 img { max-width: 100%; height: auto; display: block; }
 
+/* Bezpieczny domyślny rozmiar ikon SVG — komponenty poniżej mogą go nadpisywać.
+   Zapobiega "puchnięciu" ikon w miejscach bez dedykowanej reguły. */
+.fi-ico { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+svg { max-width: 100%; }
+
 a { color: var(--fi-accent-dark); text-decoration: none; transition: color var(--fi-transition); }
 a:hover { color: var(--fi-accent); }
 
@@ -228,6 +233,8 @@ ul { margin: 0; padding: 0; }
 .fi-hero-card > p { color: var(--fi-text-light); font-size: .95rem; margin-bottom: 18px; }
 .fi-hero-card .fi-field { margin-bottom: 14px; }
 .fi-hero-card .fi-form-note { font-size: .8rem; color: var(--fi-text-light); text-align: center; margin: 12px 0 0; }
+.fi-form-note { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: .82rem; color: var(--fi-text-light); text-align: center; margin: 12px 0 0; }
+.fi-form-note svg { width: 15px; height: 15px; color: var(--fi-success); flex-shrink: 0; }
 
 /* Pasek logotypów / zaufania pod hero */
 .fi-trustbar { background: var(--fi-primary-light); padding: 18px 0; border-top: 1px solid rgba(148,163,184,.12); }
@@ -269,6 +276,17 @@ ul { margin: 0; padding: 0; }
 .fi-service-link { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; font-size: .92rem; color: var(--fi-accent-dark); margin-top: auto; }
 .fi-service-link svg { width: 16px; height: 16px; transition: transform var(--fi-transition); }
 .fi-service-card:hover .fi-service-link svg { transform: translateX(4px); }
+
+/* =========================================================================
+   7b. KORZYŚCI OGRZEWANIA PODŁOGOWEGO
+   ========================================================================= */
+.fi-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--fi-gap); }
+.fi-benefit { display: flex; gap: 18px; align-items: flex-start; padding: 26px; background: #fff; border: 1px solid var(--fi-border); border-radius: var(--fi-radius); box-shadow: var(--fi-shadow-sm); transition: transform var(--fi-transition), box-shadow var(--fi-transition); }
+.fi-benefit:hover { transform: translateY(-4px); box-shadow: var(--fi-shadow); }
+.fi-benefit-ico { width: 52px; height: 52px; border-radius: 13px; background: var(--fi-accent-soft); display: grid; place-items: center; flex-shrink: 0; }
+.fi-benefit-ico svg { width: 26px; height: 26px; color: var(--fi-accent-dark); }
+.fi-benefit h3 { font-size: 1.12rem; margin-bottom: 6px; }
+.fi-benefit p { font-size: .94rem; color: var(--fi-text-light); margin: 0; }
 
 /* =========================================================================
    8. DLACZEGO MY (USP)
@@ -581,7 +599,7 @@ ul { margin: 0; padding: 0; }
     .fi-why-grid { grid-template-columns: 1fr; }
     .fi-steps { grid-template-columns: repeat(2, 1fr); }
     .fi-steps .fi-step::after { display: none; }
-    .fi-gallery, .fi-reviews, .fi-pricing { grid-template-columns: 1fr 1fr; }
+    .fi-gallery, .fi-reviews, .fi-pricing, .fi-benefits { grid-template-columns: 1fr 1fr; }
     .fi-about, .fi-area, .fi-contact { grid-template-columns: 1fr; gap: 40px; }
     .fi-about-media { max-width: 420px; margin: 0 auto; }
     .fi-footer-grid { grid-template-columns: 1fr 1fr; }
@@ -603,7 +621,7 @@ ul { margin: 0; padding: 0; }
     .fi-nav.is-open a { padding: 15px 16px; font-size: 1.1rem; border-bottom: 1px solid var(--fi-bg-alt); border-radius: 0; }
     .fi-nav.is-open .fi-nav-cta { margin-top: 16px; }
 
-    .fi-services-grid, .fi-stats, .fi-steps, .fi-gallery, .fi-reviews, .fi-pricing, .fi-footer-grid, .fi-checklist, .fi-area-list { grid-template-columns: 1fr; }
+    .fi-services-grid, .fi-stats, .fi-steps, .fi-gallery, .fi-reviews, .fi-pricing, .fi-benefits, .fi-footer-grid, .fi-checklist, .fi-area-list { grid-template-columns: 1fr; }
     .fi-form-row { grid-template-columns: 1fr; }
     .fi-mobile-bar { display: grid; }
     .fi-float { bottom: 78px; }

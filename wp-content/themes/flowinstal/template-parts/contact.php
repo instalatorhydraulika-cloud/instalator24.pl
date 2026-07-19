@@ -10,8 +10,8 @@
 		<div class="fi-contact">
 			<div class="fi-contact-info fi-reveal">
 				<span class="fi-eyebrow"><?php flowinstal_icon( 'phone' ); ?><?php esc_html_e( 'Kontakt', 'flowinstal' ); ?></span>
-				<h2><?php esc_html_e( 'Skontaktuj się po darmową wycenę', 'flowinstal' ); ?></h2>
-				<p><?php esc_html_e( 'Zadzwoń, napisz lub wypełnij formularz. Najszybciej skontaktujesz się ze mną telefonicznie — odbieram po godzinach pracy etatowej.', 'flowinstal' ); ?></p>
+				<h2><?php esc_html_e( 'Wyceń ogrzewanie podłogowe — bezpłatnie', 'flowinstal' ); ?></h2>
+				<p><?php esc_html_e( 'Zadzwoń, napisz lub wypełnij formularz. Umówię wizję lokalną i przygotuję rzetelną wycenę. Najszybciej skontaktujesz się ze mną telefonicznie — odbieram po godzinach pracy etatowej.', 'flowinstal' ); ?></p>
 
 				<ul class="fi-contact-list">
 					<li>

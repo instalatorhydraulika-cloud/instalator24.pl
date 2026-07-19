@@ -21,7 +21,7 @@ $year = date( 'Y' );
 					<span class="fi-logo-mark"><?php flowinstal_icon( 'droplet' ); ?></span>
 					<span><b>Flow</b><span>Instal</span></span>
 				</a>
-				<p><?php esc_html_e( 'Nowoczesne instalacje grzewcze, ogrzewanie podłogowe i wod-kan. Brzeziny, Łódź i okolice. Fachowość, słowność i czystość pracy.', 'flowinstal' ); ?></p>
+				<p><?php esc_html_e( 'Specjalista od wodnego ogrzewania podłogowego. Projekt, montaż i rozruch — Brzeziny, Łódź i okolice. Fachowość, słowność i czystość pracy.', 'flowinstal' ); ?></p>
 				<div class="fi-footer-social">
 					<?php if ( $fb ) : ?><a href="<?php echo esc_url( $fb ); ?>" target="_blank" rel="noopener" aria-label="Facebook"><?php flowinstal_icon( 'facebook' ); ?></a><?php endif; ?>
 					<?php if ( $ig ) : ?><a href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener" aria-label="Instagram"><?php flowinstal_icon( 'instagram' ); ?></a><?php endif; ?>
@@ -34,10 +34,10 @@ $year = date( 'Y' );
 				<h4><?php esc_html_e( 'Oferta', 'flowinstal' ); ?></h4>
 				<ul class="fi-footer-links">
 					<li><a href="#uslugi"><?php esc_html_e( 'Ogrzewanie podłogowe', 'flowinstal' ); ?></a></li>
-					<li><a href="#uslugi"><?php esc_html_e( 'Kotłownie na pelet', 'flowinstal' ); ?></a></li>
+					<li><a href="#uslugi"><?php esc_html_e( 'Rozdzielacze i strefy', 'flowinstal' ); ?></a></li>
+					<li><a href="#uslugi"><?php esc_html_e( 'Podłączenie pompy ciepła', 'flowinstal' ); ?></a></li>
 					<li><a href="#uslugi"><?php esc_html_e( 'Instalacje wod-kan', 'flowinstal' ); ?></a></li>
-					<li><a href="#uslugi"><?php esc_html_e( 'Oczyszczalnie ścieków', 'flowinstal' ); ?></a></li>
-					<li><a href="#cennik"><?php esc_html_e( 'Cennik orientacyjny', 'flowinstal' ); ?></a></li>
+					<li><a href="#korzysci"><?php esc_html_e( 'Korzyści podłogówki', 'flowinstal' ); ?></a></li>
 				</ul>
 			</div>
 

@@ -1,24 +1,24 @@
 <?php
 /**
- * Sekcja opinii — social proof z gwiazdkami.
+ * Sekcja opinii — social proof (fokus: ogrzewanie podłogowe).
  *
  * @package FlowInstal
  */
 $reviews = array(
 	array(
-		'text' => __( 'Pan Maciej robił nam ogrzewanie podłogowe w nowym domu pod Brzezinami. Wszystko dopięte na ostatni guzik, po pracy posprzątane. Polecam każdemu, kto ceni porządek i terminowość.', 'flowinstal' ),
+		'text' => __( 'Pan Maciej robił nam ogrzewanie podłogowe w całym domu pod Brzezinami. Wszystko policzone, pętle równiutkie, próba ciśnieniowa z protokołem. Podłoga grzeje idealnie, rachunki z pompą ciepła bardzo niskie. Polecam!', 'flowinstal' ),
 		'name' => __( 'Tomasz W.', 'flowinstal' ),
 		'loc'  => __( 'Brzeziny', 'flowinstal' ),
 		'src'  => 'google',
 	),
 	array(
-		'text' => __( 'Wymiana całej instalacji wod-kan w remontowanym mieszkaniu. Konkret, fachowe podejście i uczciwa cena. Dojazd na Widzew bez problemu, terminy popołudniowe — dla mnie idealnie.', 'flowinstal' ),
+		'text' => __( 'Podłogówka w parterze plus rozdzielacz z podziałem na strefy. Konkret, fachowe podejście i porządek po pracy. Dojazd na Widzew bez problemu, terminy popołudniowe — dla mnie idealnie.', 'flowinstal' ),
 		'name' => __( 'Agnieszka K.', 'flowinstal' ),
 		'loc'  => __( 'Łódź Widzew', 'flowinstal' ),
 		'src'  => 'facebook',
 	),
 	array(
-		'text' => __( 'Montaż kotła na pelet i podłączenie kotłowni. Wszystko wyjaśnione, materiał dobrej jakości z hurtowni, bez żadnych przedpłat. Kotłownia wygląda jak z katalogu. Polecam!', 'flowinstal' ),
+		'text' => __( 'Kompleksowo: ułożenie pętli, rozdzielacze i spięcie z pompą ciepła. Wszystko wyjaśnione, materiał dobrej jakości z hurtowni, wycena po obejrzeniu budowy. Ciepła podłoga w całym domu — super komfort.', 'flowinstal' ),
 		'name' => __( 'Marek S.', 'flowinstal' ),
 		'loc'  => __( 'Stryków', 'flowinstal' ),
 		'src'  => 'google',

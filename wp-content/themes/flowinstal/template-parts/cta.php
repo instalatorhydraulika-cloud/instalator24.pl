@@ -10,8 +10,8 @@
 		<div class="fi-cta-band fi-reveal">
 			<div class="fi-cta-inner">
 				<div>
-					<h2><?php esc_html_e( 'Masz projekt instalacji? Porozmawiajmy.', 'flowinstal' ); ?></h2>
-					<p><?php esc_html_e( 'Bezpłatna wycena, elastyczne terminy i konkretny fachowiec. Zadzwoń lub napisz — odpowiadam tego samego dnia.', 'flowinstal' ); ?></p>
+					<h2><?php esc_html_e( 'Planujesz ogrzewanie podłogowe? Porozmawiajmy.', 'flowinstal' ); ?></h2>
+					<p><?php esc_html_e( 'Bezpłatna wycena po wizji lokalnej, elastyczne terminy i konkretny fachowiec. Zadzwoń lub napisz — odpowiadam tego samego dnia.', 'flowinstal' ); ?></p>
 				</div>
 				<div class="fi-cta-band-actions">
 					<a class="fi-btn fi-btn--white fi-btn--lg" href="tel:<?php echo esc_attr( flowinstal_phone_link() ); ?>"><?php flowinstal_icon( 'phone' ); ?><?php echo esc_html( flowinstal_phone_display() ); ?></a>

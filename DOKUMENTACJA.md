@@ -11,9 +11,11 @@ funkcje, sposób podglądu, instalacji oraz listę rzeczy do uzupełnienia.
 ## 1. Czym jest projekt
 
 Rozbudowana, konwersyjna strona internetowa dla firmy instalatorskiej
-**FlowInstal** (właściciel: **Maciej Kolasa**), nastawiona na **rynek lokalny:
-Brzeziny i okolice (woj. łódzkie)** w promieniu ok. 20 km — Stryków, Andrespol,
-Koluszki, Nowosolna, Łódź Widzew, Rogów, Jeżów.
+**FlowInstal** (właściciel: **Maciej Kolasa**), z marketingiem skupionym na
+**wodnym ogrzewaniu podłogowym**, nastawiona na **rynek lokalny: Brzeziny
+i okolice (woj. łódzkie)** w promieniu ok. 20 km — Stryków, Andrespol,
+Koluszki, Nowosolna, Łódź Widzew, Rogów, Jeżów. Wyceny przygotowywane są
+zawsze po wizji lokalnej (brak publicznego cennika — świadoma decyzja).
 
 Profil działalności (z briefu):
 - Instalacje grzewcze, **ogrzewanie podłogowe**, **kotłownie na pelet/ekogroszek**,
@@ -55,10 +57,10 @@ wp-content/themes/flowinstal/
 │   ├── stats.php          # Animowane liczniki (4 lata, 250+, 20 km, 100%)
 │   ├── why.php            # USP — „Dlaczego ja" (3 punkty)
 │   ├── process.php        # Proces współpracy w 4 krokach
+│   ├── benefits.php       # Korzyści ogrzewania podłogowego (6 kafelków)
 │   ├── about.php          # O mnie / twarz wykonawcy
 │   ├── gallery.php        # Realizacje (galeria — obecnie placeholdery)
 │   ├── reviews.php        # Opinie klientów z gwiazdkami
-│   ├── pricing.php        # Cennik orientacyjny (3 pakiety)
 │   ├── area.php           # Obszar działania + mapa Google
 │   ├── faq.php            # Najczęstsze pytania (accordion)
 │   ├── cta.php            # Mocne wezwanie do działania
@@ -83,16 +85,16 @@ wp-content/themes/flowinstal/
    darmowy dojazd / popołudnia i soboty) oraz **formularz szybkiej wyceny**.
 4. **Pasek zaufania** — 5 szybkich argumentów (materiał z rabatem, bez przedpłat,
    czystość, punktualność, transparentne rozliczenia).
-5. **Usługi** — 4 karty: podłogówka, kotłownie, wod-kan, oczyszczalnie.
-6. **Statystyki** — animowane liczniki.
-7. **Dlaczego ja (USP)** — sekcja ciemna, 3 atuty.
-8. **Proces** — współpraca w 4 krokach (kontakt → wycena → realizacja → odbiór).
-9. **O mnie** — budowanie zaufania, lista kompetencji, podpis wykonawcy.
-10. **Realizacje** — galeria 6 kafelków (przed/po — do podmiany na zdjęcia).
-11. **Opinie** — 3 referencje z gwiazdkami i lokalizacją.
-12. **Cennik** — 3 pakiety orientacyjne, środkowy wyróżniony.
+5. **Usługi** — 4 karty skupione na podłogówce: montaż pętli, rozdzielacze i strefy, podłączenie źródła ciepła (pompa ciepła / kocioł), wod-kan uzupełniająco.
+6. **Korzyści ogrzewania podłogowego** — 6 kafelków (komfort, oszczędność, pompa ciepła, estetyka, mikroklimat, ciepła podłoga).
+7. **Statystyki** — animowane liczniki (m² podłogówki).
+8. **Dlaczego ja (USP)** — sekcja ciemna, 3 atuty (projekt, szczelność, elastyczność).
+9. **Proces** — montaż podłogówki w 4 krokach (wizja lokalna → projekt+wycena → montaż → próby/rozruch).
+10. **O mnie** — budowanie zaufania, lista kompetencji, podpis wykonawcy.
+11. **Realizacje** — galeria 6 kafelków (do podmiany na zdjęcia).
+12. **Opinie** — 3 referencje z gwiazdkami i lokalizacją.
 13. **Obszar działania** — lista miejscowości + mapa Google + „darmowy dojazd".
-14. **FAQ** — accordion (6 pytań), zsynchronizowany z danymi SEO.
+14. **FAQ** — accordion (7 pytań o podłogówkę), zsynchronizowany z danymi SEO.
 15. **CTA** — pasek z telefonem i WhatsApp.
 16. **Kontakt** — dane teleadresowe + pełny formularz zapytania.
 17. **Stopka** — kolumny, social media, mapa linków, prawa autorskie.
@@ -111,7 +113,7 @@ wp-content/themes/flowinstal/
 | Pop-up oferty | Po 12 s lub przy wyjściu (exit-intent) | całość |
 | Animowane liczniki | Social proof liczbowy | sekcja statystyk |
 | Opinie z gwiazdkami | Social proof | sekcja opinii |
-| Cennik | Transparentność = lepsze leady | sekcja cennik |
+| Sekcja korzyści | Edukacja + budowanie pożądania (podłogówka) | po usługach |
 | WhatsApp click-to-chat | Gotowa wiadomość startowa | wiele miejsc |
 | Cookie / RODO | Pasek zgody | dół |
 | Back-to-top | Wygodna nawigacja | prawy dół |

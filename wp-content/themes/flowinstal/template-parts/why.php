@@ -1,24 +1,24 @@
 <?php
 /**
- * Sekcja "Dlaczego ja" — unikalna propozycja sprzedaży (USP).
+ * Sekcja "Dlaczego ja" — USP w kontekście ogrzewania podłogowego.
  *
  * @package FlowInstal
  */
 $points = array(
 	array(
+		'icon'  => 'document',
+		'title' => __( 'Projekt, nie „na oko"', 'flowinstal' ),
+		'desc'  => __( 'Dobieram rozstaw pętli, długości obiegów i strefy pod konkretne pomieszczenia. Dobrze policzona podłogówka grzeje równomiernie i tanio — bez zimnych miejsc i przegrzewania.', 'flowinstal' ),
+	),
+	array(
+		'icon'  => 'shield',
+		'title' => __( 'Szczelność z protokołem', 'flowinstal' ),
+		'desc'  => __( 'Każdą instalację poddaję próbie ciśnieniowej przed wylewką i po niej. Otrzymujesz protokół — pewność, że pod posadzką nie czeka Cię żadna niespodzianka.', 'flowinstal' ),
+	),
+	array(
 		'icon'  => 'calendar',
 		'title' => __( 'Elastyczny czas pracy', 'flowinstal' ),
-		'desc'  => __( 'Pracujesz w tygodniu? Rozumiem to. Pomiary, wyceny oraz realizacje dopasowuję do Twojego grafiku — popołudnia oraz soboty.', 'flowinstal' ),
-	),
-	array(
-		'icon'  => 'truck',
-		'title' => __( 'Materiał i sprzęt bez stresu', 'flowinstal' ),
-		'desc'  => __( 'Współpracuję z zaufaną hurtownią. Dostarczam sprawdzony materiał najwyższej jakości z rabatami wykonawczymi i mam pełne zaplecze profesjonalnych narzędzi.', 'flowinstal' ),
-	),
-	array(
-		'icon'  => 'sparkles',
-		'title' => __( 'Czystość i słowność', 'flowinstal' ),
-		'desc'  => __( 'Zawsze zjawiam się o ustalonej godzinie. Dbam o porządek w miejscu pracy i zostawiam pomieszczenia posprzątane po montażu.', 'flowinstal' ),
+		'desc'  => __( 'Pracujesz w tygodniu? Rozumiem to. Wizję lokalną, wycenę i montaż dopasowuję do Twojego grafiku — popołudnia oraz soboty. Materiał dostarczam z rabatem hurtowym.', 'flowinstal' ),
 	),
 );
 ?>
@@ -27,7 +27,7 @@ $points = array(
 		<div class="fi-section-head fi-reveal">
 			<span class="fi-eyebrow"><?php flowinstal_icon( 'award' ); ?><?php esc_html_e( 'Przewaga', 'flowinstal' ); ?></span>
 			<h2><?php esc_html_e( 'Dlaczego warto wybrać FlowInstal?', 'flowinstal' ); ?></h2>
-			<p><?php esc_html_e( 'Rozmawiasz bezpośrednio z wykonawcą — bez pośredników, bez ukrytych kosztów, z pełną odpowiedzialnością za jakość.', 'flowinstal' ); ?></p>
+			<p><?php esc_html_e( 'Rozmawiasz bezpośrednio z wykonawcą — bez pośredników i ukrytych kosztów. Podłogówka to instalacja na dekady, dlatego liczy się precyzja na każdym etapie.', 'flowinstal' ); ?></p>
 		</div>
 
 		<div class="fi-why-grid">

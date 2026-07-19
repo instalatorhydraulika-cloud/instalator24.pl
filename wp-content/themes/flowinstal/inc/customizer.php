@@ -84,9 +84,9 @@ function flowinstal_customize_register( $wp_customize ) {
 	) );
 
 	$hero_fields = array(
-		'flowinstal_hero_eyebrow' => array( __( 'Etykieta nad nagłówkiem', 'flowinstal' ), 'Instalator z Brzezin • Maciej Kolasa', 'text' ),
-		'flowinstal_hero_title'   => array( __( 'Nagłówek H1', 'flowinstal' ), 'Nowoczesne instalacje grzewcze i wod-kan w Brzezinach', 'text' ),
-		'flowinstal_hero_lead'    => array( __( 'Podnagłówek', 'flowinstal' ), 'Planujesz budowę lub remont w Brzezinach, Łodzi lub okolicach? Oferuję 4 lata praktycznego doświadczenia, własne zaplecze sprzętowe oraz elastyczne terminy popołudniowe i weekendowe dopasowane do Twojego czasu.', 'textarea' ),
+		'flowinstal_hero_eyebrow' => array( __( 'Etykieta nad nagłówkiem', 'flowinstal' ), 'Specjalista ogrzewania podłogowego • Brzeziny i okolice', 'text' ),
+		'flowinstal_hero_title'   => array( __( 'Nagłówek H1 (można użyć znacznika akcentu)', 'flowinstal' ), 'Ogrzewanie podłogowe od projektu po rozruch — <span class="fi-accent-text">ciepła podłoga w całym domu</span>', 'text' ),
+		'flowinstal_hero_lead'    => array( __( 'Podnagłówek', 'flowinstal' ), 'Kompleksowy montaż wodnego ogrzewania podłogowego w Brzezinach, Łodzi i okolicy. Projekt pętli, rozdzielacze, próby ciśnieniowe i rozruch — pod pompę ciepła lub kocioł. Elastyczne terminy popołudniowe i weekendowe dopasowane do Twojego czasu.', 'textarea' ),
 	);
 	foreach ( $hero_fields as $id => $data ) {
 		$wp_customize->add_setting( $id, array(
@@ -121,7 +121,7 @@ function flowinstal_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'flowinstal_promo_text', array(
-		'default'           => 'Promocja na czerwiec: -10% na ogrzewanie podłogowe + bezpłatny dojazd na terenie powiatu brzezińskiego!',
+		'default'           => 'Planujesz podłogówkę w tym sezonie? Bezpłatny projekt pętli przy zleceniu montażu + darmowy dojazd na terenie powiatu brzezińskiego!',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'flowinstal_promo_text', array(
@@ -153,7 +153,7 @@ function flowinstal_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'flowinstal_popup_title', array(
-		'default'           => 'Odbierz bezpłatną wycenę',
+		'default'           => 'Wyceń ogrzewanie podłogowe',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'flowinstal_popup_title', array(
@@ -163,7 +163,7 @@ function flowinstal_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_setting( 'flowinstal_popup_text', array(
-		'default'           => 'Zostaw numer telefonu — oddzwonię po godzinach i bezpłatnie wycenię Twoją instalację. Bez zobowiązań.',
+		'default'           => 'Zostaw numer telefonu — oddzwonię po godzinach, umówię wizję lokalną i bezpłatnie wycenię ogrzewanie podłogowe. Bez zobowiązań.',
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
 	$wp_customize->add_control( 'flowinstal_popup_text', array(

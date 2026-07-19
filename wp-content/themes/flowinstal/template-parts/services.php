@@ -1,33 +1,33 @@
 <?php
 /**
- * Sekcja oferty — siatka usług.
+ * Sekcja oferty — zakres usług skupiony wokół ogrzewania podłogowego.
  *
  * @package FlowInstal
  */
 $services = array(
 	array(
 		'icon'  => 'thermometer',
-		'title' => __( 'Ogrzewanie podłogowe', 'flowinstal' ),
-		'desc'  => __( 'Profesjonalne projektowanie i układanie pętli podłogowych, montaż rozdzielaczy i próby ciśnieniowe.', 'flowinstal' ),
-		'list'  => array( __( 'Rozplanowanie i układanie pętli', 'flowinstal' ), __( 'Montaż rozdzielaczy i szafek', 'flowinstal' ), __( 'Próby ciśnieniowe i rozruch', 'flowinstal' ) ),
+		'title' => __( 'Ogrzewanie podłogowe wodne', 'flowinstal' ),
+		'desc'  => __( 'Kompleksowy montaż od podstaw: izolacja, folia, układanie i mocowanie pętli, obróbki dylatacyjne.', 'flowinstal' ),
+		'list'  => array( __( 'Projekt i dobór rozstawu pętli', 'flowinstal' ), __( 'Układanie rur PE-RT / PE-Xa', 'flowinstal' ), __( 'Izolacja i taśmy brzegowe', 'flowinstal' ) ),
 	),
 	array(
-		'icon'  => 'flame',
-		'title' => __( 'Kotłownie i technika grzewcza', 'flowinstal' ),
-		'desc'  => __( 'Montaż i modernizacja kotłów na pelet oraz ekogroszek — zgodnie ze sztuką instalatorską.', 'flowinstal' ),
-		'list'  => array( __( 'Kotły na pelet i ekogroszek', 'flowinstal' ), __( 'Modernizacja starych kotłowni', 'flowinstal' ), __( 'Podłączenia bezawaryjne', 'flowinstal' ) ),
+		'icon'  => 'tool',
+		'title' => __( 'Rozdzielacze i strefy grzewcze', 'flowinstal' ),
+		'desc'  => __( 'Montaż rozdzielaczy, szafek podtynkowych i podział domu na strefy z osobną regulacją.', 'flowinstal' ),
+		'list'  => array( __( 'Rozdzielacze z przepływomierzami', 'flowinstal' ), __( 'Szafki podtynkowe i natynkowe', 'flowinstal' ), __( 'Równoważenie obiegów', 'flowinstal' ) ),
+	),
+	array(
+		'icon'  => 'zap',
+		'title' => __( 'Podłączenie źródła ciepła', 'flowinstal' ),
+		'desc'  => __( 'Spięcie podłogówki z pompą ciepła lub kotłem na pelet — bufor, mieszacze, grupa pompowa.', 'flowinstal' ),
+		'list'  => array( __( 'Pompa ciepła i kotły na pelet', 'flowinstal' ), __( 'Grupy mieszające i bufory', 'flowinstal' ), __( 'Automatyka i termostaty', 'flowinstal' ) ),
 	),
 	array(
 		'icon'  => 'droplet',
-		'title' => __( 'Instalacje wod-kan', 'flowinstal' ),
-		'desc'  => __( 'Kompleksowe wykonawstwo instalacji wodno-kanalizacyjnych, modernizacje pionów i zgrzewanie PP.', 'flowinstal' ),
-		'list'  => array( __( 'Nowe instalacje w budynkach', 'flowinstal' ), __( 'Wymiana pionów i podejść', 'flowinstal' ), __( 'Zgrzewanie rur PP', 'flowinstal' ) ),
-	),
-	array(
-		'icon'  => 'home',
-		'title' => __( 'Oczyszczalnie i przyłącza', 'flowinstal' ),
-		'desc'  => __( 'Montaż przydomowych oczyszczalni ścieków, przyłączy wodociągowych i instalacji zewnętrznych.', 'flowinstal' ),
-		'list'  => array( __( 'Przydomowe oczyszczalnie', 'flowinstal' ), __( 'Przyłącza wodociągowe', 'flowinstal' ), __( 'Instalacje zewnętrzne', 'flowinstal' ) ),
+		'title' => __( 'Wod-kan i instalacje uzupełniające', 'flowinstal' ),
+		'desc'  => __( 'Budujesz dom? Wykonam też instalację wodno-kanalizacyjną, zgrzewanie PP i przyłącza.', 'flowinstal' ),
+		'list'  => array( __( 'Instalacje wod-kan w budynkach', 'flowinstal' ), __( 'Zgrzewanie rur PP', 'flowinstal' ), __( 'Przyłącza i oczyszczalnie', 'flowinstal' ) ),
 	),
 );
 ?>
@@ -35,8 +35,8 @@ $services = array(
 	<div class="fi-container">
 		<div class="fi-section-head fi-reveal">
 			<span class="fi-eyebrow"><?php flowinstal_icon( 'wrench' ); ?><?php esc_html_e( 'Zakres usług', 'flowinstal' ); ?></span>
-			<h2><?php esc_html_e( 'Kompleksowe usługi instalatorskie', 'flowinstal' ); ?></h2>
-			<p><?php esc_html_e( 'Działam lokalnie — w Brzezinach i w promieniu 20 km. Od pojedynczej usterki po pełną instalację w domu w stanie surowym.', 'flowinstal' ); ?></p>
+			<h2><?php esc_html_e( 'Ogrzewanie podłogowe — kompleksowo', 'flowinstal' ); ?></h2>
+			<p><?php esc_html_e( 'Specjalizuję się w wodnym ogrzewaniu podłogowym: od projektu pętli, przez montaż, po rozruch. Uzupełniająco wykonuję instalacje wod-kan. Działam w Brzezinach i w promieniu 20 km.', 'flowinstal' ); ?></p>
 		</div>
 
 		<div class="fi-services-grid">

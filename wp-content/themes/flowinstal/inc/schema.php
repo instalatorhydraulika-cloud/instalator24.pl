@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function flowinstal_seo_meta() {
 	$desc = get_bloginfo( 'description' );
 	if ( empty( $desc ) ) {
-		$desc = 'FlowInstal — instalator z Brzezin. Ogrzewanie podłogowe, kotłownie na pelet, instalacje wod-kan, przydomowe oczyszczalnie ścieków. Brzeziny, Łódź i okolice (20 km).';
+		$desc = 'FlowInstal — ogrzewanie podłogowe w Brzezinach, Łodzi i okolicy. Projekt pętli, montaż, rozdzielacze, próby ciśnieniowe i rozruch. Pod pompę ciepła i kotły na pelet. Dojazd do 20 km od Brzezin.';
 	}
 	?>
 	<meta name="description" content="<?php echo esc_attr( $desc ); ?>">
@@ -90,10 +90,12 @@ function flowinstal_schema_localbusiness() {
 			),
 		),
 		'makesOffer' => array(
-			flowinstal_offer( 'Montaż ogrzewania podłogowego' ),
-			flowinstal_offer( 'Montaż i modernizacja kotłowni na pelet i ekogroszek' ),
+			flowinstal_offer( 'Montaż wodnego ogrzewania podłogowego' ),
+			flowinstal_offer( 'Projekt pętli i dobór rozstawu ogrzewania podłogowego' ),
+			flowinstal_offer( 'Montaż rozdzielaczy i stref grzewczych' ),
+			flowinstal_offer( 'Podłączenie ogrzewania podłogowego pod pompę ciepła i kocioł na pelet' ),
+			flowinstal_offer( 'Próby ciśnieniowe i rozruch instalacji grzewczej' ),
 			flowinstal_offer( 'Instalacje wod-kan i zgrzewanie PP' ),
-			flowinstal_offer( 'Montaż przydomowych oczyszczalni ścieków' ),
 		),
 		'aggregateRating' => array(
 			'@type'       => 'AggregateRating',
@@ -150,28 +152,32 @@ add_action( 'wp_head', 'flowinstal_schema_faq', 6 );
 function flowinstal_get_faqs() {
 	return array(
 		array(
-			'q' => 'Na jakim obszarze realizujesz zlecenia?',
-			'a' => 'Działam w Brzezinach (95-060) oraz w promieniu do 20 km — m.in. Stryków, Andrespol, Koluszki, Nowosolna, Rogów, Jeżów oraz wschodnia część Łodzi (Widzew). Na terenie powiatu brzezińskiego dojazd jest bezpłatny.',
+			'q' => 'Czy ogrzewanie podłogowe ogrzeje cały dom?',
+			'a' => 'Tak. Dobrze zaprojektowana podłogówka z powodzeniem ogrzewa cały dom — pod warunkiem właściwego doboru rozstawu pętli, izolacji i źródła ciepła. Przy odpowiednim projekcie nie potrzebujesz grzejników, nawet w łazience czy sypialniach.',
+		),
+		array(
+			'q' => 'Podłogówka współpracuje z pompą ciepła?',
+			'a' => 'To wręcz najlepszy duet. Ogrzewanie podłogowe pracuje na niskiej temperaturze zasilania (35–45°C), dzięki czemu pompa ciepła osiąga wysoką efektywność (COP) i niskie rachunki. Spinam podłogówkę zarówno z pompą ciepła, jak i z kotłem na pelet.',
+		),
+		array(
+			'q' => 'Jaki rozstaw rur i jaka temperatura będzie u mnie?',
+			'a' => 'Rozstaw pętli (najczęściej 10–20 cm) i długości obiegów dobieram indywidualnie pod pomieszczenie i zapotrzebowanie na ciepło. W strefach brzegowych i łazienkach zagęszczam pętle. Wszystko liczę na etapie projektu — nie układam „na oko".',
+		),
+		array(
+			'q' => 'Czy podłogówka pasuje pod płytki, panele i deskę?',
+			'a' => 'Tak — trzeba tylko dobrać wykończenie z odpowiednim oporem cieplnym. Najlepiej przewodzą płytki, ale są też panele i deski dedykowane do ogrzewania podłogowego. Doradzę, co sprawdzi się w Twoim domu.',
+		),
+		array(
+			'q' => 'Jak wygląda wycena ogrzewania podłogowego?',
+			'a' => 'Wycena jest bezpłatna i przygotowuję ją zawsze po wizji lokalnej — bez cenników „z sufitu". Dopiero po obejrzeniu budowy, sprawdzeniu metrażu i źródła ciepła mogę podać rzetelny, wiążący kosztorys z podziałem na robociznę i materiał.',
 		),
 		array(
 			'q' => 'Pracuję w tygodniu — czy dopasujesz się do mojego grafiku?',
-			'a' => 'Tak. Pomiary, wyceny i montaże realizuję w elastycznych terminach: popołudniami w dni robocze (zwykle od 16:00) oraz w soboty. To idealne rozwiązanie dla klientów indywidualnych, którzy pracują na etacie.',
+			'a' => 'Tak. Wizję lokalną, wycenę i montaż realizuję w elastycznych terminach: popołudniami w dni robocze (zwykle od 16:00) oraz w soboty. To idealne rozwiązanie dla klientów indywidualnych pracujących na etacie.',
 		),
 		array(
-			'q' => 'Czy muszę sam kupować materiały?',
-			'a' => 'Nie musisz. Współpracuję z zaufaną lokalną hurtownią, dzięki czemu dostarczam sprawdzony materiał wysokiej jakości z rabatami wykonawczymi — bez konieczności przedpłat z Twojej strony. Posiadam też własne, profesjonalne narzędzia.',
-		),
-		array(
-			'q' => 'Ile kosztuje wycena?',
-			'a' => 'Wycena jest całkowicie bezpłatna i niezobowiązująca. Po krótkiej rozmowie telefonicznej lub oględzinach na miejscu przygotowuję przejrzysty kosztorys z podziałem na robociznę i materiał.',
-		),
-		array(
-			'q' => 'Jakich instalacji nie wykonujesz?',
-			'a' => 'Do czasu uzyskania uprawnień gazowych (SEP E i D) nie podejmuję się instalacji gazowych. Skupiam się na instalacjach wod-kan, ogrzewaniu podłogowym, kotłach na paliwa stałe (pelet, ekogroszek) oraz przydomowych oczyszczalniach ścieków.',
-		),
-		array(
-			'q' => 'Czy wystawiasz dokument potwierdzający wykonanie usługi?',
-			'a' => 'Tak. Rozliczenia są transparentne, a po zakończeniu prac otrzymujesz dokument potwierdzający wykonanie usługi. Wszystkie ustalenia potwierdzam wcześniej na piśmie/SMS.',
+			'q' => 'Czy dajesz gwarancję szczelności?',
+			'a' => 'Każdą instalację poddaję próbie ciśnieniowej przed wylewką i po niej, a Ty otrzymujesz protokół. To pewność, że pod posadzką nie czeka Cię żadna niespodzianka. Rozliczenia są transparentne, a wszystkie ustalenia potwierdzam wcześniej.',
 		),
 	);
 }

@@ -192,11 +192,13 @@ function flowinstal_icon( $name, $echo = true ) {
 	);
 
 	$icon  = isset( $icons[ $name ] ) ? $icons[ $name ] : $icons['check'];
-	$svg   = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $icon . '</svg>';
+	// Atrybuty width/height="24" działają jako bezpieczny fallback rozmiaru —
+	// zapobiegają "puchnięciu" ikony, gdy w danym miejscu brakuje reguły CSS.
+	$svg   = '<svg class="fi-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $icon . '</svg>';
 
 	// Ikony wypełniane (gwiazdki, soc-media) lepiej wyglądają z fill.
 	if ( in_array( $name, array( 'star-filled', 'whatsapp', 'facebook', 'instagram', 'google' ), true ) ) {
-		$svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' . $icon . '</svg>';
+		$svg = '<svg class="fi-ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' . $icon . '</svg>';
 	}
 
 	if ( $echo ) {
@@ -221,11 +223,11 @@ add_filter( 'excerpt_more', 'flowinstal_excerpt_more' );
 function flowinstal_fallback_menu() {
 	$items = array(
 		'#uslugi'    => __( 'Oferta', 'flowinstal' ),
+		'#korzysci'  => __( 'Korzyści', 'flowinstal' ),
+		'#proces'    => __( 'Jak pracuję', 'flowinstal' ),
 		'#o-nas'     => __( 'O mnie', 'flowinstal' ),
-		'#dlaczego'  => __( 'Dlaczego ja', 'flowinstal' ),
 		'#realizacje'=> __( 'Realizacje', 'flowinstal' ),
 		'#opinie'    => __( 'Opinie', 'flowinstal' ),
-		'#cennik'    => __( 'Cennik', 'flowinstal' ),
 		'#kontakt'   => __( 'Kontakt', 'flowinstal' ),
 	);
 	echo '<nav class="fi-nav" id="fi-nav">';
