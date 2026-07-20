@@ -9,6 +9,46 @@ używają **szyfrowanego połączenia SSH**.
 
 ---
 
+## ⭐ Szybka ścieżka dla LH.pl (Twój serwer) — skrypt `deploy-lh.sh`
+
+Masz już skonfigurowany klucz SSH na LH (wg Twojego workflow). Skrypt
+`deploy-lh.sh` jest ustawiony pod LH: host `serwer151640.lh.pl`, port `40022`,
+użytkownik `serwer151640`, klucz `~/.ssh/id_ed25519`. Działa w **Git Bash**
+(używa `scp`, nie wymaga `rsync`).
+
+**Krok 1 — potwierdź, że SSH działa i znajdź katalog domeny:**
+```bash
+ssh -p 40022 -i ~/.ssh/id_ed25519 serwer151640@serwer151640.lh.pl 'ls ~/public_html/'
+```
+Na liście znajdź folder domeny **flow-instal.pl**. To strona **statyczna**
+(nie WordPress!), więc pliki idą do katalogu domeny — zwykle
+`public_html/flow-instal.pl`, a NIE do `.../autoinstalator/.../wordpressNNN/`.
+Jeśli nie widać folderu domeny, sprawdź w panelu LH, jaki jest **katalog
+docelowy** domeny flow-instal.pl (Domeny → flow-instal.pl → katalog).
+
+**Krok 2 — wpisz właściwą ścieżkę** w `deploy-lh.sh` w linii `REMOTE_DIR=...`
+(domyślnie `public_html/flow-instal.pl`).
+
+**Krok 3 — wgraj stronę:**
+```bash
+cd /sciezka/do/pobranego/projektu
+bash deploy-lh.sh
+```
+Skrypt utworzy katalogi i skopiuje wszystkie pliki strony. Na koniec wejdź na
+**https://flow-instal.pl** (CTRL+SHIFT+R). W panelu LH włącz **SSL (Let's
+Encrypt)**, jeśli jeszcze nieaktywny.
+
+**Test po wgraniu (opcjonalnie):**
+```bash
+curl -sI https://flow-instal.pl/ | head -1        # powinno być HTTP/... 200
+```
+
+> Uwaga: to jest strona statyczna — nie używamy tu WP-CLI ani motywu. Cały serwis
+> to pliki: `index.html`, `css/`, `js/`, `assets/`, `robots.txt`, `sitemap.xml`,
+> `site.webmanifest`, `404.html`, `polityka-prywatnosci.html`.
+
+---
+
 ## Krok 0 — dane z panelu hostingu
 
 Znajdź w panelu swojego hostingu (zakładka „SSH/FTP" lub „Dostęp SSH"):
