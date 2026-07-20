@@ -115,7 +115,7 @@ Telefon i WhatsApp działają zawsze, niezależnie od formularza.
 - Wydajność: brak frameworków, jeden plik CSS i JS, font z `display=swap`,
   `preconnect`, leniwe ładowanie mapy.
 
-> Pamiętaj podmienić `https://instalator24.pl` na docelową domenę w `index.html`
+> Pamiętaj podmienić `https://flow-instal.pl` na docelową domenę w `index.html`
 > (canonical/JSON-LD), `robots.txt` i `sitemap.xml`.
 
 ---

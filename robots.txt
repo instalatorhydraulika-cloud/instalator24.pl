@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://instalator24.pl/sitemap.xml
+Sitemap: https://flow-instal.pl/sitemap.xml

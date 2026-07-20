@@ -77,7 +77,7 @@ Wszystko edytujesz bezpośrednio w plikach (zwykły tekst):
 - **Własne zdjęcie** — sekcja „O mnie".
 - **Prawdziwe opinie** — sekcja „Opinie".
 - **Domena** — w `index.html` (canonical, dane strukturalne), `robots.txt`,
-  `sitemap.xml` podmień `https://instalator24.pl` na docelowy adres.
+  `sitemap.xml` podmień `https://flow-instal.pl` na docelowy adres.
 - **Polityka prywatności** — uzupełnij `polityka-prywatnosci.html`.
 
 ---
