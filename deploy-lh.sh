@@ -11,15 +11,15 @@
 set -euo pipefail
 
 # ===== POŁĄCZENIE LH (z Twojej dokumentacji) =================================
-SSH_HOST="serwer151640.lh.pl"
-SSH_USER="serwer151640"
+SSH_HOST="serwer437820.lh.pl"
+SSH_USER="serwer437820"
 SSH_PORT="40022"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 
 # ===== KATALOG DOCELOWY DOMENY (POTWIERDŹ przed pierwszym wgraniem) ==========
 # To jest strona STATYCZNA (nie WordPress), więc pliki idą do katalogu domeny,
 # a NIE do .../autoinstalator/.../wordpressNNN/. Znajdź właściwą ścieżkę:
-#     ssh -p 40022 -i ~/.ssh/id_ed25519 serwer151640@serwer151640.lh.pl 'ls ~/public_html/'
+#     ssh -p 40022 -i ~/.ssh/id_ed25519 serwer437820@serwer437820.lh.pl 'ls ~/public_html/'
 # i wpisz tu folder domeny flow-instal.pl (typowo jedno z poniższych):
 REMOTE_DIR="public_html/flow-instal.pl"
 # REMOTE_DIR="domains/flow-instal.pl/public_html"

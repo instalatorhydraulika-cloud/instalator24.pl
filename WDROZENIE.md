@@ -12,13 +12,13 @@ używają **szyfrowanego połączenia SSH**.
 ## ⭐ Szybka ścieżka dla LH.pl (Twój serwer) — skrypt `deploy-lh.sh`
 
 Masz już skonfigurowany klucz SSH na LH (wg Twojego workflow). Skrypt
-`deploy-lh.sh` jest ustawiony pod LH: host `serwer151640.lh.pl`, port `40022`,
-użytkownik `serwer151640`, klucz `~/.ssh/id_ed25519`. Działa w **Git Bash**
+`deploy-lh.sh` jest ustawiony pod LH: host `serwer437820.lh.pl`, port `40022`,
+użytkownik `serwer437820`, klucz `~/.ssh/id_ed25519`. Działa w **Git Bash**
 (używa `scp`, nie wymaga `rsync`).
 
 **Krok 1 — potwierdź, że SSH działa i znajdź katalog domeny:**
 ```bash
-ssh -p 40022 -i ~/.ssh/id_ed25519 serwer151640@serwer151640.lh.pl 'ls ~/public_html/'
+ssh -p 40022 -i ~/.ssh/id_ed25519 serwer437820@serwer437820.lh.pl 'ls ~/public_html/'
 ```
 Na liście znajdź folder domeny **flow-instal.pl**. To strona **statyczna**
 (nie WordPress!), więc pliki idą do katalogu domeny — zwykle

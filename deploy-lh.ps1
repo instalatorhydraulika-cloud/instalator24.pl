@@ -9,13 +9,13 @@
 $ErrorActionPreference = "Stop"
 
 # ===== POLACZENIE LH =========================================================
-$SSH_HOST  = "serwer151640.lh.pl"
-$SSH_USER  = "serwer151640"
+$SSH_HOST  = "serwer437820.lh.pl"
+$SSH_USER  = "serwer437820"
 $SSH_PORT  = "40022"
 
 # ===== KATALOG DOCELOWY DOMENY (POTWIERDZ) ===================================
 # To strona STATYCZNA. Znajdz katalog domeny:
-#   ssh -p 40022 serwer151640@serwer151640.lh.pl "ls ~/public_html/"
+#   ssh -p 40022 serwer437820@serwer437820.lh.pl "ls ~/public_html/"
 # i wpisz tu wlasciwy folder (typowo jedno z ponizszych):
 $REMOTE_DIR = "public_html/flow-instal.pl"
 # $REMOTE_DIR = "domains/flow-instal.pl/public_html"
