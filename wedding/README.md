@@ -15,16 +15,17 @@ wedding/
 └── assets/      ← hero.jpg (jedyne zdjęcie na stronie) + archiwum photo-*/thumb-*
 ```
 
-### ⚠️ Zdjęcie `assets/hero.jpg`
-Strona używa **jednego** zdjęcia — `assets/hero.jpg`. Pojawia się w dwóch miejscach:
-w sekcji hero (w łuku z girlandą) oraz na karcie „Dziękujemy" po wysłaniu RSVP.
+### Zdjęcie `assets/hero.jpg`
+Strona używa **jednego** zdjęcia — `assets/hero.jpg` (1200×1799, ok. 390 KB).
+Pojawia się w dwóch miejscach: w sekcji hero (w łuku z girlandą) oraz na karcie
+„Dziękujemy" po wysłaniu RSVP.
 
-Aby je podmienić, wgraj swój plik pod tą samą nazwą:
-```
-wedding/assets/hero.jpg
-```
-Zalecane: kadr **pionowy** (ok. 2:3, np. 1333×2000 px), twarze mniej więcej w górnej
-części kadru. Pozostałe pliki `photo-*.jpg` / `thumb-*.jpg` nie są już nigdzie używane
+Aby je podmienić, wgraj swój plik pod tą samą nazwą (`wedding/assets/hero.jpg`).
+Zalecane: kadr **pionowy** ok. 2:3 (np. 1200×1800 px), zapisany bez danych EXIF.
+Łuk w hero pokazuje całą wysokość zdjęcia i lekko przycina boki, więc zostaw
+trochę marginesu po bokach kadru.
+
+Pozostałe pliki `photo-*.jpg` / `thumb-*.jpg` nie są już nigdzie używane
 (galeria i oś czasu zostały usunięte) — można je zostawić jako archiwum albo skasować.
 
 ## Jak podejrzeć
