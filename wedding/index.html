@@ -66,9 +66,7 @@
     <span></span><span></span><span></span>
   </button>
   <div class="topnav-links" id="navLinks">
-    <a href="#historia">Nasza historia</a>
     <a href="#plan">Plan dnia</a>
-    <a href="#galeria">Galeria</a>
     <a href="#info">Informacje</a>
     <a href="#rsvp" class="topnav-cta">Potwierdź obecność</a>
   </div>
@@ -78,50 +76,41 @@
 
   <!-- ===================== HERO ===================== -->
   <header class="hero" id="hero">
-    <div class="hero-arch">
-      <svg class="arch-svg" viewBox="0 0 400 620" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#a9b894"/>
-            <stop offset="1" stop-color="#7c8b6f"/>
-          </linearGradient>
-        </defs>
-        <!-- łuk -->
-        <path d="M60,600 L60,220 A140,140 0 0 1 340,220 L340,600"
-              fill="none" stroke="#c8b98a" stroke-width="2.5" opacity=".55"/>
-        <!-- girlanda liści wzdłuż łuku (lewa) -->
-        <g class="arch-leaves arch-leaves-left" fill="url(#leafGrad)"></g>
-        <g class="arch-leaves arch-leaves-right" fill="url(#leafGrad)"></g>
-      </svg>
-    </div>
-
     <div class="hero-inner reveal">
       <p class="hero-eyebrow">we're getting married</p>
       <h1 class="hero-names">Olga<span class="amp">&amp;</span>Jakub</h1>
       <div class="hero-rule"><span></span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-7-4.35-9.33-8.6C1.1 9.2 2.7 5.5 6.2 5.5c2 0 3.2 1.2 3.8 2.2.6-1 1.8-2.2 3.8-2.2 3.5 0 5.1 3.7 3.53 6.9C19 16.65 12 21 12 21z" fill="#c9a24b"/></svg><span></span></div>
+
+      <!-- Jedyne zdjęcie na stronie — w łuku z girlandą liści -->
+      <figure class="hero-figure">
+        <svg class="arch-svg" viewBox="0 0 400 620" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#a9b894"/>
+              <stop offset="1" stop-color="#7c8b6f"/>
+            </linearGradient>
+          </defs>
+          <path d="M60,600 L60,220 A140,140 0 0 1 340,220 L340,600"
+                fill="none" stroke="#c8b98a" stroke-width="2.5" opacity=".55"/>
+          <g class="arch-leaves arch-leaves-left" fill="url(#leafGrad)"></g>
+          <g class="arch-leaves arch-leaves-right" fill="url(#leafGrad)"></g>
+        </svg>
+        <div class="hero-photo">
+          <img id="heroPhoto" src="assets/hero.jpg"
+               alt="Olga i Jakub — zdjęcie narzeczeńskie wśród brzóz"
+               decoding="async" fetchpriority="high" width="1333" height="2000" />
+        </div>
+      </figure>
+
       <p class="hero-date">20 sierpnia 2027 · piątek</p>
       <p class="hero-place">Brzeziny</p>
       <a href="#rsvp" class="btn btn-primary hero-btn">Potwierdź obecność</a>
     </div>
 
-    <a href="#historia" class="scroll-cue" aria-label="Przewiń niżej">
+    <a href="#plan" class="scroll-cue" aria-label="Przewiń niżej">
       <span></span>
     </a>
   </header>
-
-  <!-- ===================== WYRÓŻNIONE: ZARĘCZYNY ===================== -->
-  <section class="feature" id="zareczyny" aria-label="Zaręczyny">
-    <div class="feature-media">
-      <img src="assets/photo-1.jpg" alt="Olga i Jakub — moment zaręczyn na plaży o zachodzie słońca"
-           loading="lazy" decoding="async" width="960" height="1280" />
-      <div class="feature-veil"></div>
-    </div>
-    <div class="feature-text reveal">
-      <span class="feature-eyebrow">i tak się zaczęło „na zawsze"</span>
-      <h2 class="feature-title">Powiedziała <em>TAK</em></h2>
-      <p class="feature-sub">💍 &nbsp;a teraz zapraszamy Was, byście świętowali z nami</p>
-    </div>
-  </section>
 
   <!-- ===================== ODLICZANIE ===================== -->
   <section class="countdown-band" aria-label="Odliczanie do ślubu">
@@ -138,44 +127,6 @@
     <p class="cd-done" id="cdDone" hidden>Ten dzień właśnie nadszedł — kochamy Was! 💛</p>
   </section>
 
-  <!-- ===================== NASZA HISTORIA ===================== -->
-  <section class="section story" id="historia">
-    <div class="section-head reveal">
-      <span class="eyebrow">nasza historia</span>
-      <h2>Jak to się zaczęło</h2>
-    </div>
-    <ol class="timeline">
-      <li class="reveal">
-        <span class="tl-dot"></span>
-        <img class="tl-photo" src="assets/thumb-3.jpg" alt="Olga i Jakub" loading="lazy" width="400" height="400" />
-        <span class="tl-year">2019</span>
-        <h3>Pierwsze spotkanie</h3>
-        <p>Przypadkowe „cześć", które zmieniło wszystko. Do dziś spieramy się, kto zaczął rozmowę pierwszy.</p>
-      </li>
-      <li class="reveal">
-        <span class="tl-dot"></span>
-        <img class="tl-photo" src="assets/thumb-4.jpg" alt="Olga i Jakub nad morzem" loading="lazy" width="400" height="400" />
-        <span class="tl-year">2021</span>
-        <h3>Wspólne życie</h3>
-        <p>Pierwsze mieszkanie, pierwsza roślina (przeżyła!) i tysiące małych codziennych chwil.</p>
-      </li>
-      <li class="reveal">
-        <span class="tl-dot"></span>
-        <img class="tl-photo" src="assets/thumb-1.jpg" alt="Zaręczyny — pierścionek" loading="lazy" width="400" height="400" />
-        <span class="tl-year">2026</span>
-        <h3>Oświadczyny</h3>
-        <p>Zachód słońca, drżące ręce i jedno wielkie „TAK". 💍</p>
-      </li>
-      <li class="reveal">
-        <span class="tl-dot"></span>
-        <img class="tl-photo" src="assets/thumb-5.jpg" alt="Olga i Jakub o zachodzie słońca" loading="lazy" width="400" height="400" />
-        <span class="tl-year">2027</span>
-        <h3>Mówimy „tak"</h3>
-        <p>20 sierpnia powiemy sobie to najważniejsze — i chcemy, żebyście byli tam z nami.</p>
-      </li>
-    </ol>
-  </section>
-
   <!-- ===================== PLAN DNIA ===================== -->
   <section class="section plan" id="plan">
     <div class="section-head reveal">
@@ -186,12 +137,28 @@
       <div class="agenda-item reveal">
         <div class="ag-time">17:00</div>
         <div class="ag-icon">⛪</div>
-        <div class="ag-body"><h3>Ceremonia</h3><p>Kościół Fara w Brzezinach (pw. Podwyższenia Św. Krzyża). Prosimy o przybycie 15 min wcześniej.</p></div>
+        <div class="ag-body">
+          <h3>Ceremonia</h3>
+          <p><strong>Parafia pw. Podwyższenia Świętego Krzyża</strong><br />
+             ul. Tadeusza Kościuszki 48, 95-060 Brzeziny</p>
+          <p class="ag-hint">Prosimy o przybycie 15 minut wcześniej.</p>
+          <a class="ag-map" aria-label="Nawiguj do kościoła w Google Maps" href="https://www.google.com/maps/search/?api=1&amp;query=Parafia%20pw.%20Podwy%C5%BCszenia%20%C5%9Awi%C4%99tego%20Krzy%C5%BCa%2C%20Tadeusza%20Ko%C5%9Bciuszki%2048%2C%2095-060%20Brzeziny" target="_blank" rel="noopener">
+            <span class="ag-pin" aria-hidden="true">📍</span> <span>Nawiguj</span>
+          </a>
+        </div>
       </div>
       <div class="agenda-item reveal">
         <div class="ag-time">19:00</div>
         <div class="ag-icon">🥂</div>
-        <div class="ag-body"><h3>Powitanie Pary Młodej</h3><p>Sala bankietowa w Tworzyjankach. Toast, życzenia i pierwsze wspólne zdjęcia.</p></div>
+        <div class="ag-body">
+          <h3>Powitanie Pary Młodej</h3>
+          <p><strong>Sala — Tworzyjanki 12</strong><br />
+             Tworzyjanki 12, 95-060 Brzeziny</p>
+          <p class="ag-hint">Toast, życzenia i pierwsze wspólne zdjęcia.</p>
+          <a class="ag-map" aria-label="Nawiguj na salę weselną w Google Maps" href="https://www.google.com/maps/search/?api=1&amp;query=Tworzyjanki%2012%2C%2095-060%20Brzeziny" target="_blank" rel="noopener">
+            <span class="ag-pin" aria-hidden="true">📍</span> <span>Nawiguj</span>
+          </a>
+        </div>
       </div>
       <div class="agenda-item reveal">
         <div class="ag-time">19:30</div>
@@ -214,33 +181,6 @@
         <div class="ag-body"><h3>Zabawa do białego rana</h3><p>Tańczymy do świtu. Bez poprawin — dajemy z siebie wszystko jednego wieczoru!</p></div>
       </div>
     </div>
-  </section>
-
-  <!-- ===================== GALERIA ===================== -->
-  <section class="section gallery" id="galeria">
-    <div class="section-head reveal">
-      <span class="eyebrow">chwile</span>
-      <h2>Nasza galeria</h2>
-      <p class="section-sub">Kilka kadrów z naszej wspólnej drogi. Więcej — już wkrótce.</p>
-    </div>
-    <div class="gallery-grid" id="galleryGrid">
-      <figure class="ph tall reveal" style="--i:0" data-full="assets/photo-1.jpg" data-cap="Powiedziała TAK 💍">
-        <img src="assets/photo-1.jpg" alt="Zaręczyny na plaży" loading="lazy" decoding="async" width="960" height="1280" />
-      </figure>
-      <figure class="ph tall reveal" style="--i:1" data-full="assets/photo-2.jpg" data-cap="Zachód słońca tylko dla nas">
-        <img src="assets/photo-2.jpg" alt="Zachód słońca na tarasie" loading="lazy" decoding="async" width="960" height="1280" />
-      </figure>
-      <figure class="ph reveal" style="--i:2" data-full="assets/photo-3.jpg" data-cap="Słoneczne dni we dwoje">
-        <img src="assets/photo-3.jpg" alt="Olga i Jakub nad morzem" loading="lazy" decoding="async" width="960" height="1280" />
-      </figure>
-      <figure class="ph reveal" style="--i:3" data-full="assets/photo-4.jpg" data-cap="Nasze wieczory">
-        <img src="assets/photo-4.jpg" alt="Olga i Jakub — elegancko" loading="lazy" decoding="async" width="960" height="1280" />
-      </figure>
-      <figure class="ph wide reveal" style="--i:4" data-full="assets/photo-5.jpg" data-cap="Patrząc w tę samą stronę">
-        <img src="assets/photo-5.jpg" alt="Olga i Jakub patrzą na zachód słońca" loading="lazy" decoding="async" width="960" height="1280" />
-      </figure>
-    </div>
-    <p class="gallery-note reveal">Dotknij zdjęcia, aby powiększyć.</p>
   </section>
 
   <!-- ===================== RSVP ===================== -->
@@ -283,7 +223,18 @@
         </div>
 
         <fieldset class="field">
-          <legend>Wybór dania głównego</legend>
+          <legend>Dieta — jesz wszystko czy wege? *</legend>
+          <div class="diet-row" role="radiogroup" aria-label="Dieta">
+            <label class="diet"><input type="radio" name="diet" value="Bez ograniczeń" checked /><span class="d-emoji">🍽️</span><span class="d-lab">Jem wszystko</span></label>
+            <label class="diet"><input type="radio" name="diet" value="Wegetariańska" /><span class="d-emoji">🥗</span><span class="d-lab">Wegetariańska</span></label>
+            <label class="diet"><input type="radio" name="diet" value="Wegańska" /><span class="d-emoji">🌱</span><span class="d-lab">Wegańska</span></label>
+          </div>
+          <p class="field-hint" id="dietHint" hidden>Świetnie — dopasowaliśmy Twoje danie główne poniżej. 💚</p>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Danie główne</legend>
+          <p class="field-hint">Wybierz to, na które masz największą ochotę.</p>
           <div class="menu-grid">
             <label class="menu-card">
               <input type="radio" name="menu" value="Mięsne" />
@@ -313,16 +264,20 @@
         </fieldset>
 
         <fieldset class="field">
-          <legend>Alergie / dieta (zaznacz, jeśli dotyczy)</legend>
+          <legend>Alergie i nietolerancje pokarmowe</legend>
+          <p class="field-hint">Zaznacz wszystko, co Cię dotyczy — przekażemy to kucharzowi.</p>
           <div class="chips">
             <label class="chip"><input type="checkbox" name="allergy" value="Gluten" /><span>Gluten</span></label>
             <label class="chip"><input type="checkbox" name="allergy" value="Laktoza" /><span>Laktoza</span></label>
             <label class="chip"><input type="checkbox" name="allergy" value="Orzechy" /><span>Orzechy</span></label>
             <label class="chip"><input type="checkbox" name="allergy" value="Jaja" /><span>Jaja</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Ryby" /><span>Ryby</span></label>
             <label class="chip"><input type="checkbox" name="allergy" value="Skorupiaki" /><span>Skorupiaki</span></label>
-            <label class="chip"><input type="checkbox" name="allergy" value="Bezglutenowa" /><span>Dieta bezglutenowa</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Soja" /><span>Soja</span></label>
+            <label class="chip"><input type="checkbox" name="allergy" value="Seler" /><span>Seler</span></label>
           </div>
-          <input type="text" id="fAllergyOther" name="allergy_other" placeholder="Inne alergie / szczególne potrzeby żywieniowe" />
+          <label class="sr-only" for="fAllergyOther">Inne alergie lub potrzeby żywieniowe</label>
+          <input type="text" id="fAllergyOther" name="allergy_other" placeholder="Inne alergie lub szczególne potrzeby (np. bezglutenowa, dieta dziecka)" />
         </fieldset>
 
         <div class="field">
@@ -346,10 +301,21 @@
     <!-- Podziękowanie po wysłaniu -->
     <div class="rsvp-thanks" id="rsvpThanks" hidden>
       <div class="thanks-card">
-        <div class="thanks-heart">💛</div>
-        <h3 id="thanksTitle">Dziękujemy!</h3>
-        <p id="thanksMsg"></p>
-        <button type="button" class="btn btn-ghost" id="editAgain">Edytuj odpowiedź</button>
+        <div class="thanks-photo">
+          <img src="assets/hero.jpg" alt="Olga i Jakub" loading="lazy" decoding="async" width="1333" height="2000" />
+          <div class="thanks-veil"></div>
+          <div class="thanks-overlay">
+            <span class="thanks-script">Dziękujemy</span>
+            <span class="thanks-sub">i do zobaczenia!</span>
+            <span class="thanks-when">20 sierpnia 2027 · Brzeziny</span>
+          </div>
+          <div class="thanks-confetti" id="thanksConfetti" aria-hidden="true"></div>
+        </div>
+        <div class="thanks-body">
+          <h3 id="thanksTitle">Dziękujemy!</h3>
+          <p id="thanksMsg"></p>
+          <button type="button" class="btn btn-ghost" id="editAgain">Edytuj odpowiedź</button>
+        </div>
       </div>
     </div>
   </section>
@@ -384,17 +350,17 @@
       <article class="info-card reveal">
         <div class="ic-icon">⛪</div>
         <h3>Ceremonia</h3>
-        <p><strong>Kościół Fara w Brzezinach</strong><br />pw. Podwyższenia Św. Krzyża<br />ul. Kościuszki 48, 95-060 Brzeziny</p>
+        <p><strong>Parafia pw. Podwyższenia Świętego Krzyża</strong><br />(Fara w Brzezinach)<br />ul. Tadeusza Kościuszki 48, 95-060 Brzeziny</p>
         <p class="ic-note">Godz. 17:00 · prosimy o przybycie 15 min wcześniej.</p>
-        <a class="ic-map" href="https://maps.google.com/?q=Ko%C5%9Bci%C3%B3%C5%82%20Fara%20Brzeziny%20Ko%C5%9Bciuszki%2048" target="_blank" rel="noopener">Zobacz na mapie →</a>
+        <a class="ic-map" href="https://www.google.com/maps/search/?api=1&amp;query=Parafia%20pw.%20Podwy%C5%BCszenia%20%C5%9Awi%C4%99tego%20Krzy%C5%BCa%2C%20Tadeusza%20Ko%C5%9Bciuszki%2048%2C%2095-060%20Brzeziny" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> Otwórz w Google Maps</a>
       </article>
 
       <article class="info-card reveal">
         <div class="ic-icon">🥂</div>
         <h3>Wesele</h3>
-        <p><strong>Sala bankietowa</strong><br />Tworzyjanki (gm. Brzeziny)</p>
+        <p><strong>Sala — Tworzyjanki 12</strong><br />Tworzyjanki 12, 95-060 Brzeziny</p>
         <p class="ic-note">Godz. 19:00 · zabawa do białego rana, bez poprawin.</p>
-        <a class="ic-map" href="https://maps.google.com/?q=Tworzyjanki%20sala%20bankietowa%20Brzeziny" target="_blank" rel="noopener">Zobacz na mapie →</a>
+        <a class="ic-map" href="https://www.google.com/maps/search/?api=1&amp;query=Tworzyjanki%2012%2C%2095-060%20Brzeziny" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> Otwórz w Google Maps</a>
       </article>
     </div>
 
@@ -428,18 +394,7 @@
     <a href="#rsvp" class="btn btn-ghost">Potwierdź obecność</a>
   </footer>
 
-  <!-- ===================== LIGHTBOX ===================== -->
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Podgląd zdjęcia">
-    <button class="lb-close" id="lbClose" aria-label="Zamknij">&times;</button>
-    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Poprzednie">&#8249;</button>
-    <figure class="lb-figure">
-      <img id="lbImg" src="" alt="" />
-      <figcaption id="lbCap"></figcaption>
-    </figure>
-    <button class="lb-nav lb-next" id="lbNext" aria-label="Następne">&#8250;</button>
-  </div>
-
-</main>
+  </main>
 
 <script src="script.js"></script>
 </body>

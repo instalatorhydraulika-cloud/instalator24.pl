@@ -1,19 +1,31 @@
 # 💌 Olga & Jakub — strona ślubna
 
 Samodzielna, statyczna strona z zaproszeniem, potwierdzeniem obecności (RSVP),
-wyborem menu i alergiami. Zoptymalizowana pod **telefon**. Bez zależności i bez
+wyborem diety, menu i alergii. Zoptymalizowana pod **telefon**. Bez zależności i bez
 frameworków — wystarczy otworzyć `index.html`.
+
+**Ślub:** 20 sierpnia 2027 (piątek) · ceremonia 17:00 · wesele 19:00.
 
 ## Pliki
 ```
 wedding/
 ├── index.html   ← treść (imiona, data, teksty, sekcje)
 ├── style.css    ← wygląd i kolory
-├── script.js    ← animacje, odliczanie, formularz RSVP, galeria/lightbox
-└── assets/      ← zdjęcia (photo-1..5.jpg + miniatury thumb-1..5.jpg)
+├── script.js    ← animacje koperty, odliczanie, formularz RSVP
+└── assets/      ← hero.jpg (jedyne zdjęcie na stronie) + archiwum photo-*/thumb-*
 ```
 
-Zdjęcia są już wgrane, wyprostowane (EXIF), wykadrowane i zoptymalizowane pod web.
+### ⚠️ Zdjęcie `assets/hero.jpg`
+Strona używa **jednego** zdjęcia — `assets/hero.jpg`. Pojawia się w dwóch miejscach:
+w sekcji hero (w łuku z girlandą) oraz na karcie „Dziękujemy" po wysłaniu RSVP.
+
+Aby je podmienić, wgraj swój plik pod tą samą nazwą:
+```
+wedding/assets/hero.jpg
+```
+Zalecane: kadr **pionowy** (ok. 2:3, np. 1333×2000 px), twarze mniej więcej w górnej
+części kadru. Pozostałe pliki `photo-*.jpg` / `thumb-*.jpg` nie są już nigdzie używane
+(galeria i oś czasu zostały usunięte) — można je zostawić jako archiwum albo skasować.
 
 ## Jak podejrzeć
 Otwórz `index.html` w przeglądarce (najlepiej w trybie widoku mobilnego).
@@ -28,14 +40,20 @@ python3 -m http.server 8080   # → http://localhost:8080
 |---|---|
 | Imiona, datę, teksty | `index.html` |
 | Godziny w „Planie dnia" | `index.html`, sekcja `id="plan"` |
-| Zdjęcia (galeria, oś czasu, sekcja zaręczyn) | katalog `assets/` — podmień pliki `photo-*.jpg` i `thumb-*.jpg` (zachowaj nazwy) lub edytuj `<img>` w `index.html` |
+| Zdjęcie na stronie | podmień `assets/hero.jpg` (zachowaj nazwę) |
+| Adresy i pinezki Google Maps | `index.html` — linki `ag-map` (plan dnia) i `ic-map` (informacje) |
 | Kolory (szałwiowy / masłowy) | `style.css`, sekcja `:root` na górze |
 | Datę ślubu dla odliczania | `script.js`, stała `WEDDING_DATE` |
 | Termin RSVP | `script.js`, stała `RSVP_DEADLINE` |
+| Opcje diety / alergii | `index.html`, sekcja `id="rsvp"` |
 
 ## RSVP — wersja demo
 Obecnie formularz **zapisuje odpowiedzi lokalnie** (localStorage, tylko na danym
-urządzeniu) i pokazuje podziękowanie. To wersja pokazowa.
+urządzeniu) i pokazuje kartę podziękowania ze zdjęciem. To wersja pokazowa.
+
+Gość podaje: obecność, liczbę osób, **dietę** (jem wszystko / wegetariańska /
+wegańska), danie główne, **alergie** (lista + pole na własne) oraz piosenkę i wiadomość.
+Wybór diety wegetariańskiej lub wegańskiej automatycznie blokuje dania mięsne i rybne.
 
 ### Podłączenie prawdziwego odbioru odpowiedzi (na później)
 Najprościej przez [Formspree](https://formspree.io) (darmowy plan):

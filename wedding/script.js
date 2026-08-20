@@ -199,6 +199,24 @@
   });
 
   /* ---------- 8. RSVP ---------- */
+  // konfetti na zdjęciu w podziękowaniu
+  function burstConfetti() {
+    const box = $("#thanksConfetti");
+    if (!box || reduceMotion) return;
+    box.innerHTML = "";
+    const glyphs = ["♡", "✦", "❀", "✿"];
+    for (let i = 0; i < 26; i++) {
+      const c = document.createElement("span");
+      c.className = "confetti-bit";
+      c.textContent = glyphs[i % glyphs.length];
+      c.style.left = Math.random() * 100 + "%";
+      c.style.fontSize = 9 + Math.random() * 13 + "px";
+      c.style.animationDuration = 2.6 + Math.random() * 2.4 + "s";
+      c.style.animationDelay = Math.random() * 1.4 + "s";
+      box.appendChild(c);
+    }
+  }
+
   const form = $("#rsvpForm");
   const attendOnly = $("#attendOnly");
   const thanks = $("#rsvpThanks");
@@ -213,6 +231,36 @@
       attendOnly.classList.toggle("show", attending && attending.value === "tak");
     });
   });
+
+  // dieta -> dopasowanie dania głównego (wege/wegańska blokuje mięso i rybę)
+  const dietHint = $("#dietHint");
+  const MEATY = ["Mięsne", "Rybne"];
+  function applyDiet() {
+    const diet = $('input[name="diet"]:checked');
+    if (!diet) return;
+    const veg = diet.value === "Wegetariańska" || diet.value === "Wegańska";
+    const target = diet.value === "Wegańska" ? "Wegańskie"
+                 : diet.value === "Wegetariańska" ? "Wegetariańskie" : null;
+
+    $$('input[name="menu"]').forEach((m) => {
+      const blocked = veg && MEATY.indexOf(m.value) !== -1;
+      m.disabled = blocked;
+      m.closest(".menu-card").classList.toggle("is-disabled", blocked);
+      if (blocked && m.checked) m.checked = false;
+    });
+
+    // podpowiedz pasujące danie, jeśli nic sensownego nie jest zaznaczone
+    if (target) {
+      const chosen = $('input[name="menu"]:checked');
+      if (!chosen) {
+        const match = $$('input[name="menu"]').filter((m) => m.value === target)[0];
+        if (match) match.checked = true;
+      }
+    }
+    if (dietHint) dietHint.hidden = !veg;
+  }
+  $$('input[name="diet"]').forEach((r) => r.addEventListener("change", applyDiet));
+  applyDiet();
 
   function showError(msg) {
     formError.textContent = msg;
@@ -241,6 +289,8 @@
 
       if (attending.value === "tak") {
         data.guests = $("#fGuests").value;
+        const diet = $('input[name="diet"]:checked');
+        data.diet = diet ? diet.value : "Bez ograniczeń";
         const menu = $('input[name="menu"]:checked');
         data.menu = menu ? menu.value : "(nie wybrano)";
         data.allergies = $$('input[name="allergy"]:checked').map((c) => c.value);
@@ -263,9 +313,10 @@
         let msg = `Dziękujemy, ${name.split(" ")[0]}! Zapisaliśmy Twoje potwierdzenie`;
         if (data.guests) msg += ` dla ${data.guests} ${Number(data.guests) === 1 ? "osoby" : "osób"}`;
         msg += ".";
-        if (data.menu && data.menu !== "(nie wybrano)") msg += `\nMenu: ${data.menu}.`;
+        if (data.diet && data.diet !== "Bez ograniczeń") msg += `\nDieta: ${data.diet.toLowerCase()}.`;
+        if (data.menu && data.menu !== "(nie wybrano)") msg += `\nDanie główne: ${data.menu}.`;
         if (data.allergies && data.allergies.length) msg += `\nUwzględnimy: ${data.allergies.join(", ")}.`;
-        msg += `\nDo zobaczenia 20 lipca 2027!`;
+        msg += `\nDo zobaczenia 20 sierpnia 2027!`;
         thanksMsg.textContent = msg;
       } else {
         thanksTitle.textContent = "Będzie nam Ciebie brakować";
@@ -274,6 +325,7 @@
 
       form.hidden = true;
       thanks.hidden = false;
+      if (attending.value === "tak") burstConfetti();
       thanks.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   }
@@ -299,7 +351,7 @@
       const lines = all.map((r, i) => {
         let l = `${i + 1}. ${r.name} — ${r.attending === "tak" ? "będzie" : "nie będzie"}`;
         if (r.attending === "tak") {
-          l += ` (${r.guests} os., menu: ${r.menu}`;
+          l += ` (${r.guests} os., dieta: ${r.diet || "bez ograniczeń"}, menu: ${r.menu}`;
           if (r.allergies && r.allergies.length) l += `, alergie: ${r.allergies.join("/")}`;
           l += ")";
         }
@@ -307,71 +359,6 @@
       });
       alert("Zapisane odpowiedzi (demo, tylko to urządzenie):\n\n" + lines.join("\n"));
     });
-  }
-
-  /* ---------- 9. GALERIA + LIGHTBOX ---------- */
-  const figures = $$("#galleryGrid .ph");
-  const lb = $("#lightbox");
-  const lbImg = $("#lbImg");
-  const lbCap = $("#lbCap");
-  let lbIndex = 0;
-
-  // wstrzyknij podpisy na kafelki
-  figures.forEach((fig) => {
-    const cap = fig.getAttribute("data-cap");
-    if (cap) {
-      const span = document.createElement("figcaption");
-      span.className = "ph-cap";
-      span.textContent = cap;
-      fig.appendChild(span);
-    }
-  });
-
-  function openLb(i) {
-    lbIndex = (i + figures.length) % figures.length;
-    const fig = figures[lbIndex];
-    const thumbImg = fig.querySelector("img");
-    lbImg.src = fig.getAttribute("data-full") || (thumbImg ? thumbImg.src : "");
-    lbImg.alt = thumbImg ? thumbImg.alt : "";
-    lbCap.textContent = fig.getAttribute("data-cap") || "";
-    lb.classList.add("show");
-    lb.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scroll");
-  }
-  function closeLb() {
-    lb.classList.remove("show");
-    lb.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("no-scroll");
-  }
-  function stepLb(d) {
-    // krótka animacja ponownego pojawienia
-    lbImg.style.animation = "none";
-    void lbImg.offsetWidth;
-    lbImg.style.animation = "";
-    openLb(lbIndex + d);
-  }
-
-  if (lb) {
-    figures.forEach((fig, i) => {
-      fig.addEventListener("click", () => openLb(i));
-    });
-    $("#lbClose").addEventListener("click", closeLb);
-    $("#lbPrev").addEventListener("click", (e) => { e.stopPropagation(); stepLb(-1); });
-    $("#lbNext").addEventListener("click", (e) => { e.stopPropagation(); stepLb(1); });
-    lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
-    document.addEventListener("keydown", (e) => {
-      if (!lb.classList.contains("show")) return;
-      if (e.key === "Escape") closeLb();
-      else if (e.key === "ArrowLeft") stepLb(-1);
-      else if (e.key === "ArrowRight") stepLb(1);
-    });
-    // swipe na telefonie
-    let sx = 0;
-    lb.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true });
-    lb.addEventListener("touchend", (e) => {
-      const dx = e.changedTouches[0].clientX - sx;
-      if (Math.abs(dx) > 45) stepLb(dx < 0 ? 1 : -1);
-    }, { passive: true });
   }
 
 })();
